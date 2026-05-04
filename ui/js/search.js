@@ -75,6 +75,142 @@ function getSearchTerms(query) {
         .filter((term) => term.length > 1);
 }
 
+function normalizeSuggestionText(value) {
+    return normalizeText(value)
+        .replace(/[^a-z0-9\s]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function getSuggestionCandidates() {
+    const phrases = new Map();
+    const words = new Map();
+
+    SEARCH_INDEX.forEach((entry) => {
+        [entry.title, entry.category, entry.summary, ...entry.tags].forEach((value) => {
+            const normalized = normalizeSuggestionText(value);
+
+            if (normalized.length > 2 && !phrases.has(normalized)) {
+                phrases.set(normalized, value);
+            }
+        });
+
+        [entry.title, entry.category, entry.summary, entry.content, ...entry.tags].forEach((value) => {
+            String(value || "").match(/[A-Za-z0-9]+/g)?.forEach((word) => {
+                const normalized = normalizeSuggestionText(word);
+
+                if (normalized.length > 2 && !words.has(normalized)) {
+                    words.set(normalized, word);
+                }
+            });
+        });
+    });
+
+    return {
+        phrases: Array.from(phrases, ([normalized, display]) => ({ normalized, display })),
+        words: Array.from(words, ([normalized, display]) => ({ normalized, display }))
+    };
+}
+
+function getEditDistance(firstValue, secondValue) {
+    if (firstValue === secondValue) {
+        return 0;
+    }
+
+    if (!firstValue.length) {
+        return secondValue.length;
+    }
+
+    if (!secondValue.length) {
+        return firstValue.length;
+    }
+
+    const previous = Array.from({ length: secondValue.length + 1 }, (_, index) => index);
+    const current = Array(secondValue.length + 1);
+
+    for (let firstIndex = 1; firstIndex <= firstValue.length; firstIndex += 1) {
+        current[0] = firstIndex;
+
+        for (let secondIndex = 1; secondIndex <= secondValue.length; secondIndex += 1) {
+            const cost = firstValue[firstIndex - 1] === secondValue[secondIndex - 1] ? 0 : 1;
+
+            current[secondIndex] = Math.min(
+                current[secondIndex - 1] + 1,
+                previous[secondIndex] + 1,
+                previous[secondIndex - 1] + cost
+            );
+        }
+
+        for (let index = 0; index < previous.length; index += 1) {
+            previous[index] = current[index];
+        }
+    }
+
+    return previous[secondValue.length];
+}
+
+function findClosestCandidate(value, candidates, maxDistanceRatio = 0.34) {
+    const normalizedValue = normalizeSuggestionText(value);
+
+    if (normalizedValue.length < 3) {
+        return "";
+    }
+
+    return candidates
+        .map((candidate) => {
+            const distance = getEditDistance(normalizedValue, candidate.normalized);
+            const maxLength = Math.max(normalizedValue.length, candidate.normalized.length);
+
+            return {
+                ...candidate,
+                distance,
+                startsWithSameLetter: normalizedValue[0] === candidate.normalized[0],
+                lengthDifference: Math.abs(normalizedValue.length - candidate.normalized.length),
+                ratio: distance / maxLength
+            };
+        })
+        .filter((candidate) => (
+            candidate.normalized !== normalizedValue
+            && candidate.distance > 0
+            && candidate.ratio <= maxDistanceRatio
+            && candidate.distance <= Math.max(1, Math.ceil(normalizedValue.length * maxDistanceRatio))
+        ))
+        .sort((first, second) => (
+            first.distance - second.distance
+            || Number(second.startsWithSameLetter) - Number(first.startsWithSameLetter)
+            || first.lengthDifference - second.lengthDifference
+            || first.normalized.localeCompare(second.normalized)
+        ))[0]?.display || "";
+}
+
+function getSpellingSuggestion(query) {
+    const normalizedQuery = normalizeSuggestionText(query);
+
+    if (!normalizedQuery) {
+        return "";
+    }
+
+    const candidates = getSuggestionCandidates();
+    const phraseSuggestion = findClosestCandidate(normalizedQuery, candidates.phrases);
+
+    if (phraseSuggestion) {
+        return phraseSuggestion;
+    }
+
+    const terms = normalizedQuery
+        .split(" ")
+        .filter((term) => term.length > 2);
+
+    if (!terms.length) {
+        return "";
+    }
+
+    const correctedTerms = terms.map((term) => findClosestCandidate(term, candidates.words, 0.38) || term);
+    const hasCorrection = correctedTerms.some((term, index) => term.toLowerCase() !== terms[index]);
+
+    return hasCorrection ? correctedTerms.join(" ") : "";
+}
+
 function scoreEntry(entry, query, terms) {
     const title = normalizeText(entry.title);
     const summary = normalizeText(entry.summary);
@@ -182,6 +318,12 @@ function buildSnippet(entry, query) {
     return `${prefix}${source.slice(start, end).trim()}${suffix}`;
 }
 
+function getSuggestionUrl(suggestion) {
+    const suggestionUrl = new URL(window.location.href);
+    suggestionUrl.searchParams.set("q", suggestion);
+    return suggestionUrl.toString();
+}
+
 function getSearchPageUrl() {
     const inUiFolder = /\/ui\//i.test(window.location.pathname);
     const target = inUiFolder ? "search.html" : "ui/search.html";
@@ -255,10 +397,16 @@ function renderSearchPage() {
     }
 
     if (!results.length) {
+        const spellingSuggestion = getSpellingSuggestion(query);
+        const suggestionMarkup = spellingSuggestion
+            ? `<p class="search-suggestion">Did you search for: <a href="${escapeHtml(getSuggestionUrl(spellingSuggestion))}">${escapeHtml(spellingSuggestion)}</a>?</p>`
+            : "";
+
         resultsContainer.innerHTML = "";
         emptyElement.hidden = false;
         emptyElement.innerHTML = `
             <h2>No matching results</h2>
+            ${suggestionMarkup}
             <p>Try a project name, service, location, or team member such as <strong>Gateway</strong>, <strong>Cecilia</strong>, <strong>Laguna</strong>, or <strong>mission</strong>.</p>
         `;
         return;

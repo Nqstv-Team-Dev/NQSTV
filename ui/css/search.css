@@ -457,6 +457,17 @@ main {
     line-height: 1.7;
 }
 
+.search-suggestion {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.search-suggestion a {
+    color: #9b571b;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
 .search-result-snippet {
     margin-top: 12px;
 }
