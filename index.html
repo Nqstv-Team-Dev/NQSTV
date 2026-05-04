@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Inquisitive</title>
+
+    <link rel="icon" type="image/png" href="images/logonsqtv.png">
+</head>
+<body>
+     
+    <div class ="loader">
+
+    </div>
+    
+    
+
+    <div class="page-shell" id="home">
+        <header class="site-header">
+            <div class="brand">
+                <img src="images/logonsqtv.png"
+                     alt="NQSTV Logo"
+                     style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);object-fit:cover;flex-shrink:0;">
+
+                <div class="brand-copy">
+                <a href="#home" aria-label="Go to home section">
+                    <p class="brand-title">i<span class="brand-accent">NQ</span>ui<span class="brand-accent">S</span>i<span class="brand-accent">T</span>i<span class="brand-accent">V</span>e</p>
+                </a>
+                    <p class="brand-tagline">NQSTV cost and Contract Training and Consultancy Services</p>
+                </div>
+            </div>
+
+                <nav class = "site-nav" aria-label ="Primary navigation">
+                    <a href = "#home">Home</a>
+                    <a href = "#about">About us</a>
+                    <a href = "#services">Our Services</a>
+                    <a href = "#contact">Contact us</a>
+                </nav>
+
+            <div class="header-actions">
+                <form class="search-form" role="search">
+                    <span class="search-icon" aria-hidden="true"></span>
+                    <input type="search" name="q" placeholder="Search" aria-label="Search">
+                </form>
+
+                <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div class="dropdown-content" id="site-menu">
+                    <a href="./ui/mv.html">Mission Vision</a>
+                    <a href="./ui/team.html">Our Team</a>
+                    <a href="./ui/projectinfo.html">Project Portfolio</a>
+                    <a href="ui/map.html">Map</a>
+                    <a href="ui/dev.html">Developers</a>
+                </div>
+            </div>
+
+        </header>
+        <section class="first section backgroung-image" id="banner-inquiry">
+            <div class="banner-content">
+                <div class="message">
+                    <span class="banner-tagline">Let's Create Something Great </span>
+                    <h1>Commercial guidance for projects that need clarity from day one.</h1>
+                    <p>Partner with a team that combines cost planning, contract strategy, and practical training to help clients and professionals move with confidence.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="button-primary btn-banner">Get in Touch</a>
+                        <a href="ui/projectinfo.html" class="button-secondary btn-banner-secondary">View Portfolio</a>
+                    </div>
+                    <div class="hero-stats" aria-label="Company highlights">
+                        <article class="hero-stat">
+                            <strong>Pre to post contract</strong>
+                            <span>Support that stays structured from planning through closeout.</span>
+                        </article>
+                        <article class="hero-stat">
+                            <strong>Training plus consultancy</strong>
+                            <span>Practical guidance for both active projects and growing teams.</span>
+                        </article>
+                        <article class="hero-stat">
+                            <strong>Philippines and beyond</strong>
+                            <span>Services tailored for local and international project needs.</span>
+                        </article>
+                    </div>
+                </div>
+                <div class="banner-side-column">
+                    <div class="banner-video">
+                        <video autoplay muted loop playsinline>
+                            <source src="video/qs.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <article class="hero-panel-card" aria-label="Quick links">
+                        <div class="hero-panel-header">
+                            <div>
+                                <p class="section-kicker">Quick Access</p>
+                                <h2>Explore the full experience</h2>
+                            </div>
+                            
+                        </div>
+                        <p class="hero-panel-text">Browse the same polished sections used as the reference for this homepage refresh.</p>
+                        <div class="hero-panel-links">
+                            <a href="ui/projectinfo.html">Project Portfolio</a>
+                            <a href="ui/team.html">Our Team</a>
+                            <a href="ui/mv.html">Mission &amp; Vision</a>
+                            <a href="ui/map.html">Map</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <main>
+           
+            <section class="content-section intro-section" id="about">
+                <div class="section-shell intro-shell">
+                    <div class="intro-layout">
+                        <div class="welcome-image">
+                            <img src="images/logo3d.png" alt="Inquisitive featured image">
+                        </div>
+
+                        <div class="intro-copy">
+                            <p class="section-kicker">About Us</p>
+                            <h1>Welcome to Inquisitive</h1>
+                            <p>
+                               Your trusted partner in contract and cost consultancy services. We are committed to delivering innovative 
+                               solutions that meet your needs and exceed your expectations. We also offer a special Design to Cost services 
+                               for our clients to optimize the project budget.
+                            </p>
+                            <p>
+                                NQSTV COST AND CONTRACT TRAINING AND CONSULTANCY SERVICES "iNQuiSiTiVe" is a sole-proprietor training and 
+                                consulting service provider which aims to help the stakeholders of the Philippine Construction
+                                Industry understand the International standards used in Quantity Surveying, particularly Cost and Contract.
+                            </p>
+
+                            <div class ="point-card">
+                                <div class="point-card-item">
+                                    <div class="point-card-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 3v18"></path>
+                                            <path d="M17.5 5.5c1.66 1.66 2.5 3.5 2.5 5.5 0 4.42-3.58 8-8 8s-8-3.58-8-8c0-2 .84-3.84 2.5-5.5"></path>
+                                            <path d="M12 1l-4 2 4 2 4-2-4-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3>Excellence</h3>
+                                </div>
+                                <div class="point-card-item">
+                                    <div class="point-card-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="9" cy="7" r="4"></circle>
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                        </svg>
+                                    </div>
+                                    <h3>Collaboration</h3>
+                                </div>
+                                <div class="point-card-item">
+                                    <div class="point-card-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline>
+                                        </svg>
+                                    </div>
+                                    <h3>Competitiveness</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <aside class="featured-panel" aria-labelledby="featured-post-heading">
+                            <div class="featured-panel-header">
+                                <div>
+                                    <p class="section-kicker">Featured Post</p>
+                                    <h2 id="featured-post-heading">Latest highlights</h2>
+                                </div>
+                                <span class="featured-panel-badge">New</span>
+                            </div>
+
+                            <div class="featured-panel-scroll">
+                                <article class="featured-post-card featured-post-primary" data-post-url="ui/projectinfo.html" tabindex="0" role="link" aria-label="Open featured post: Contractor's Quantity Surveyor Vs Client's Quantity Surveyor">
+                                    <button class="featured-post-image-button" type="button" data-full-image="post/post1.png" data-image-alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" aria-label="View featured image full size">
+                                        <img src="post/post1.png" alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" loading="lazy">
+                                    </button>
+                                    <div class="featured-post-copy">
+                                        <h3>Contractor's Quantity Surveyor Vs Client's Quantity Surveyor</h3>
+                                        <p class="featured-post-summary is-collapsed" id="featured-post-summary-1">A quantity surveyor works for a contractor on their behalf. They will be on-site and will work closely with the subcontractors, as they will be dealing with several specialists on one project.
+The client hires a private quantity surveyor. They are more involved in budget estimates and will collaborate with architects and engineers to develop tender documents for a project. Their site visits will be fewer and farther between, usually to check valuations or attend site meetings.
+During the course of a project, the quantity surveyors for the contractor and the private quantity surveyor will negotiate and settle the final account.</p>
+                                        <button class="featured-post-toggle" type="button" aria-expanded="false" aria-controls="featured-post-summary-1">View more</button>
+                                        <a href="https://www.linkedin.com/in/nqstv-cost-and-contract-training-and-consultancy-service-6a8106401/" class="featured-post-link">Read featured post</a>
+                                    </div>
+                                </article>
+
+                                <div class="featured-post-list">
+                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post2.png" data-preview-alt="Why Should you hire us?" tabindex="0" role="button" aria-label="Open full image for Why Should you hire us?">
+                                        <button class="featured-post-image-button" type="button" data-full-image="post/post2.png" data-image-alt="Why Should you hire us?" aria-label="View Why Should you hire us? full size">
+                                            <img src="post/post2.png" alt="Why Should you hire us?" loading="lazy">
+                                        </button>
+                                        <div class="featured-post-copy">
+                                            <h3>Why Should you hire us?</h3>
+                                            <p>Discover the benefits of working with our team of experienced professionals.</p>
+                                        </div>
+                                    </article>
+
+                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post3.png" data-preview-alt="Train with us!" tabindex="0" role="button" aria-label="Open full image for Train with us!">
+                                        <button class="featured-post-image-button" type="button" data-full-image="post/post3.png" data-image-alt="Train with us!" aria-label="View Train with us! full size">
+                                            <img src="post/post3.png" alt="Train with us!" loading="lazy">
+                                        </button>
+                                        <div class="featured-post-copy">
+                                            <h3>Train with us!</h3>
+                                            <p>Enhance your skills with our comprehensive training programs.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+
+                            <div class="featured-socials">
+                                <p class="featured-socials-label">Connect</p>
+                                <div class="featured-social-links">
+                                    <a href="https://www.facebook.com/profile.php?id=100063681590674" target="_blank" rel="noopener noreferrer">Facebook</a>
+                                    <a href="mailto:inquisitivementor@gmail.com">Email</a>
+                                    <a href ="https://www.linkedin.com/in/nqstv-cost-and-contract-training-and-consultancy-service-6a8106401/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                                </div>
+                               
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+                <div class="section-shell project-showcase-shell">
+                    <div class="project-showcase-header">
+                        <p class="section-kicker">Project Portfolio</p>
+                        <h2 class="project-showcase-title">A curated cross-section of work shaped by cost certainty and contract discipline.</h2>
+                        <p class="project-showcase-lead">The homepage gallery now follows the same warm editorial direction used across the UI reference pages, while keeping this quick-scan project carousel front and center.</p>
+                    </div>
+
+                    <div class="project-overview" aria-label="Portfolio overview">
+                        <article class="overview-card">
+                            <p class="overview-label">Selected Work</p>
+                            <h3>Large-scale developments and specialist fit-outs.</h3>
+                            <p>From malls and towers to hospitality, institutional, and residential projects, the portfolio reflects broad sector exposure.</p>
+                        </article>
+                        <article class="overview-card">
+                            <p class="overview-label">Working Method</p>
+                            <h3>Commercial thinking that stays practical.</h3>
+                            <p>Each engagement is supported by planning, tender, documentation, reporting, and change control that remain easy to act on.</p>
+                        </article>
+                        <article class="overview-card">
+                            <p class="overview-label">Next Step</p>
+                            <h3>Move from a quick preview into the full portfolio.</h3>
+                            <p>Use the carousel for a fast visual sweep, then continue into the dedicated portfolio page for deeper project detail.</p>
+                        </article>
+                    </div>
+
+                    <div class="project-carousel" aria-label="Project gallery">
+                     
+                        <div class ="view-more">
+                            <a href="ui/projectinfo.html" class="view-more-link">View More Projects</a>
+                        </div>
+                        <div class="carousel-container">
+                            <div class="carousel-slide">
+                                <img src="project-image/gateway.png" onclick = "location.href='ui/projectinfo.html'" alt="Project image 1" loading="lazy">
+                                <p class="project-name">Gateway Mall 2, Cubao</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/cyber.png" alt="Project image 2" loading="lazy">
+                                <p class="project-name">Cyber Park Tower 3,4,5</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/wynn.png" alt="Project image 3" loading="lazy">
+                                <p class="project-name">Wyndham Hotel, Quezon City</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/temple.png" alt="Project image 4" loading="lazy">
+                                <p class="project-name">Tuguegarao Temple</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/minor/feu.png" alt="Project image 5" loading="lazy">
+                                <p class="project-name">FEU Roosevelt</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/crimson.png" alt="Project image 6" loading="lazy">
+                                <p class="project-name">Crimson Tower</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/chapel.png" alt="Project image 7" loading="lazy">
+                                <p class="project-name">La Salle Chapel and Event Space</p>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="project-image/araneta.png" alt="Project image 8" loading="lazy">
+                                <p class="project-name"> Araneta Coliseum BOH renovation</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/fpip-pav.png" alt="Project image 9" loading="lazy">
+                                <p class="project-name">FPIP Pavilion </p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/guevent.png" alt="Project image 10" loading="lazy">
+                                <p class="project-name">  One Guevent </p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/kalinisan.png" alt="Project image 11" loading="lazy">
+                                <p class="project-name">One Kalinisan </p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/greenhills.png" alt="Project image 12" loading="lazy">
+                                <p class="project-name">Greenhills Mall</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="project-image/fpip-alpha.png" alt="Project image 13" loading="lazy">
+                                <p class="project-name">FPIP Alpha</p>
+                            </div>
+
+                            <div class="carousel-slide">
+                                <img src="project-image/diagon.png" alt="Project image 14" loading="lazy">
+                                <p class="project-name">FPIP Diagon</p>
+                            </div>
+
+                             <div class="carousel-slide">
+                                <img src="project-image/deguia.png" alt="Project image 15" loading="lazy">
+                                <p class="project-name">De Guia Aquapod</p>
+                            </div>
+
+                             <div class="carousel-slide">
+                                <img src="project-image/grafik.png" alt="Project image 16" loading="lazy">
+                                <p class="project-name">Grafik Mactan Hotel Resort</p>
+                            </div>
+
+                             <div class="carousel-slide">
+                                <img src="project-image/upnih.png" alt="Project image 17" loading="lazy">
+                                <p class="project-name">UPNIH Office Fitout</p>
+                            </div>
+
+                             <div class="carousel-slide">
+                                <img src="project-image/sydney.png" alt="Project image 18" loading="lazy">
+                                <p class="project-name">Sydney Oasis Bacoor Cavite</p>
+                            </div>
+
+                            
+                             <div class="carousel-slide">
+                                <img src="project-image/efco.png" alt="Project image 19" loading="lazy">
+                                <p class="project-name">EFCO Office Warehouse</p>
+                            </div>
+                            
+                             <div class="carousel-slide">
+                                <img src="project-image/Hamana-home.png" alt="Project image 20" loading="lazy">
+                                <p class="project-name">Hamana Homes Mabalacat</p>
+                            </div>
+
+        
+                        </div>
+
+                        <button class="carousel-button carousel-prev" aria-label="Previous project">
+                            <span>&#10094;</span>
+                        </button>
+                        <button class="carousel-button carousel-next" aria-label="Next project">
+                            <span>&#10095;</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+
+         
+           
+
+
+            <section class="content-section services-section" id="services">
+                <div class="section-shell services-layout">
+                    <div class="services-shell-card">
+                        <div class="section-heading">
+                            <p class="section-kicker">Our Services</p>
+                            <h2>Structured support before and after contract award.</h2>
+                            <p>
+                                INQuiSiTiVe offers an alternative option for construction professionals
+                                 who spend busy days in the office and at the site. With the Cost and Contract
+                                  corporate trainings, the employees have the benefit of learning during office hours, 
+                                  with the comfort of their office or homes and without sacrificing their weekends.
+                            </p>
+                        </div>
+
+                        <div class="services-overview" aria-label="Service approach">
+                            <article class="service-overview-card">
+                                <p class="overview-label">Planning Stage</p>
+                                <h3>Sharper decisions before tendering begins.</h3>
+                                <p>Budget definition, procurement strategy, and documentation support create a more stable foundation for project delivery.</p>
+                            </article>
+                            <article class="service-overview-card">
+                                <p class="overview-label">Delivery Stage</p>
+                                <h3>Commercial control while the work is in motion.</h3>
+                                <p>We help teams track cost movement, manage changes, and keep contract administration aligned with actual site conditions.</p>
+                            </article>
+                            <article class="service-overview-card">
+                                <p class="overview-label">Learning Stage</p>
+                                <h3>Training built around working professionals.</h3>
+                                <p>Programs are designed to raise practical capability without forcing participants to choose between project work and weekends.</p>
+                            </article>
+                        </div>
+
+                        <div class="service-group">
+                            <h3 class="service-group-title"><span>Pre</span>-Contract</h3>
+
+                            <div class="service-grid">
+                           
+                                <article class="service-card" data-view-detail="iNQuiSiTiVe provide budgetary estimates in the form of Cost Plans from Concept to Tender. 
+                                It is essential for a project to have interim estimates during the entire planning and pre-construction stage since there are greater opportunities
+                                 to optimize the cost in this phase.Conceptual cost plans are presented in elemental format, benchmarked from similar projects and are used for initial
+                                  budgetary amounts. Schematic cost plans are presented in elemental format, using the Schematic plans and design criteria, benchmarked from the KPI (Key Performance Indicators) 
+                                  of similar projects. The third cost plan is the Design Development (DD) Cost Plan in the Bill of Quantities format, using the Design Development Plans and specifications. Finally, 
+                                  the Contract Drawings (CD) Cost Plan is often used for tender or bidding purposes and are used to evaluate the bids of contractors interested in building the project.">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
+                                        <line x1="8" y1="8" x2="16" y2="8"></line>
+                                        <line x1="8" y1="12" x2="11" y2="12"></line>
+                                        <line x1="13" y1="12" x2="16" y2="12"></line>
+                                        <line x1="8" y1="16" x2="11" y2="16"></line>
+                                        <line x1="13" y1="16" x2="16" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <h4>Budgetary Cost Plans</h4>
+                                <p>
+                                    Comprehensive cost estimates and budgeting advice for construction
+                                    projects.
+                                </p>
+                                </article>
+                            
+                            
+                                <article class="service-card" data-view-detail="With iNQuiSiTiVe, the owner can be assured of a fair and structured 
+                                tendering process without bias to any contractor. Bids are evaluated for correctness and completeness, to ensure the 
+                                owner does not just save money, but reduces the risk of additional cost due to incomplete scope during bids. During this
+                                 stage, savings are realized through expert advice on procurement strategies and value management. We also provide the same 
+                                 services and strategy for our general contractor clients for them to optimize their profit">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M7 3.5h8l4 4V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"></path>
+                                        <path d="M15 3.5V8h4"></path>
+                                        <line x1="8" y1="12" x2="16" y2="12"></line>
+                                        <line x1="8" y1="16" x2="16" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <h4>Tendering and Procurement</h4>
+                                <p>
+                                    Expert guidance through the tendering process and procurement
+                                    strategies.
+                                </p>
+                                </article>
+                            
+
+                            
+                                <article class="service-card" data-view-detail="Consequential to the Tendering and Procurement services, iNQuiSiTiVe also takes part in 
+                                the collection and preparation of the Contract Documents. The Contract Documents are the documents attached to the Construction Agreement 
+                                organized by hierarchy to form part of the scope of works and other responsibilities of the contractor within the construction contract.">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="6" y="3.5" width="12" height="17" rx="2"></rect>
+                                        <line x1="9" y1="8" x2="15" y2="8"></line>
+                                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                                        <line x1="9" y1="16" x2="13" y2="16"></line>
+                                        <path d="M9 3.5h6"></path>
+                                    </svg>
+                                </div>
+                                <h4>Contract Documentation</h4>
+                                <p>
+                                    Thorough preparation and review of contract documents and
+                                    specifications.
+                                </p>
+                                </article>
+                            
+                            </div>
+                        </div>
+
+                        <div class="service-group">
+                            <h3 class="service-group-title"><span>Post</span> Contract</h3>
+                            <div class="service-grid">
+                            
+                            <article class="service-card" data-view-detail="Financial Cost reports are essential during the construction stage of a project. 
+                            These reports show if the project is spending within the budget or if there is a possible savings or deficit. It also shows the 
+                            behavior of the projected cash flow in comparison with the actual cash flow, allowing the client to adjust the funding accordingly.  
+                            iNQuiSiTiVe provides this kind to service both to owners and contractors.">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 17l5-5 4 3 7-8"></path>
+                                        <path d="M4 4v16h16"></path>
+                                    </svg>
+                                </div>
+                                <h4>Financial Report</h4>
+                                <p>
+                                    Detailed financial reporting and cost tracking throughout the
+                                    project lifecycle.
+                                </p>
+                            </article>
+                            
+
+                            
+                            <article class="service-card" data-view-detail="As all projects are bound to have changes, effective change management is a must in any construction project. 
+                            Some change in scope, whether material or additional scope, even deletion of scope shall first be valued and projected before implemented. This way, the stakeholders 
+                            can decide whether to go through the change or not. Other changes which are inevitable such as conflicts in plans or those that arise from actual site conditions can 
+                            also be mitigated by Cost Managers, one of the added value of having iNQuiSiTiVe as part of the team.">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="9" r="3"></circle>
+                                        <circle cx="16.5" cy="8" r="2.5"></circle>
+                                        <path d="M4.5 18a4.5 4.5 0 0 1 9 0"></path>
+                                        <path d="M13.5 18a3.5 3.5 0 0 1 7 0"></path>
+                                    </svg>
+                                </div>
+                                <h4>Change Management</h4>
+                                <p>
+                                    Effective management of variations and change orders in
+                                    construction projects.
+                                </p>
+                            </article>
+                            
+
+                            
+                            <article class="service-card" data-view-detail="With iNQuiSiTiVe, the client is assured that the project is valued correctly during construction, 
+                            in congruence with the billing submissions of contractors to prevent over or under payment of the works. We ensure fair valuation, with no prejudice 
+                            on any party of the contract. In addition to Interim Valuations, part of Contract Management scope is the evaluation and recommendation of claims such 
+                            as Prolongation Cost associated with EOT or Extension of Time, Acceleration Cost and Disruption Cost.">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="4" y="3.5" width="16" height="17" rx="2"></rect>
+                                        <path d="m8 11 2.5 2.5L16 8"></path>
+                                        <line x1="8" y1="16" x2="16" y2="16"></line>
+                                    </svg>
+                                </div>
+                                <h4>Contract Management</h4>
+                                <p>
+                                    Professional contract administration and dispute resolution
+                                    services.
+                                </p>
+                            </article>
+                            
+
+                        
+                            <article class="service-card" data-view-detail="Final Account stage is the stage of a project where the adjusted 
+                            contract sum is reconciled and settled, as well as the status of payments. Quit claims are also signed once all 
+                            payments have been received by the contractor or the subcontractor. iNQuiSiTiVe offers a complete record of the 
+                            final account to close out all projects">
+                                <div class="service-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 7h10a4 4 0 1 1 0 8H8"></path>
+                                        <path d="M8 15h10"></path>
+                                        <circle cx="8" cy="11" r="5"></circle>
+                                        <path d="M8 8.5v5"></path>
+                                        <path d="M6.5 10h3"></path>
+                                    </svg>
+                                </div>
+                                <h4>Final Account</h4>
+                                <p>
+                                    Close out accounting on the adjusted contract amount and status of payments
+                                </p>
+                            </article>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+       
+
+            
+            <section class="content-section training-section" id="training">
+                <div class="section-shell training-shell">
+                    <div class="training-shell-card">
+                    <div class="training-content">
+                        <div class="training-left">
+                            <div class="training-copy">
+                                <p class="section-kicker">Training</p>
+                                <h1>Empowering the Next Generation of Quantity Surveyors</h1>
+                                <p>
+                                    Our comprehensive training programs are designed to equip professionals with the knowledge and skills needed to excel in quantity surveying and cost management. We combine theoretical knowledge with practical, real-world applications.
+                                </p>
+                            </div>
+
+                            <div class="training-grid">
+                                <article class="training-card">
+                                    <div class="training-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M7 3.5h8l4 4V19a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"></path>
+                                            <path d="M15 3.5V8h4"></path>
+                                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                                            <line x1="8" y1="16" x2="16" y2="16"></line>
+                                        </svg>
+                                    </div>
+                                    <h4>Cost and Contract Management for Non QS practitioners</h4>
+                                    <p>Master the core principles of Quantity Surveying and Cost ad Contract management.</p>
+                                </article>
+
+                                <article class="training-card">
+                                    
+                                    <div class="training-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
+                                            <line x1="8" y1="8" x2="16" y2="8"></line>
+                                            <line x1="8" y1="12" x2="11" y2="12"></line>
+                                            <line x1="13" y1="12" x2="16" y2="12"></line>
+                                            <line x1="8" y1="16" x2="11" y2="16"></line>
+                                            <line x1="13" y1="16" x2="16" y2="16"></line>
+                                        </svg>
+                                    </div>
+                                    <h4>International QS Standards vs. Philippine practice client</h4>
+                                    <p>Quantification and Costing For Marketing QS</p>
+                                </article>
+
+                                <article class="training-card">
+                                    <div class="training-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="6" y="3.5" width="12" height="17" rx="2"></rect>
+                                            <line x1="9" y1="8" x2="15" y2="8"></line>
+                                            <line x1="9" y1="12" x2="15" y2="12"></line>
+                                            <line x1="9" y1="16" x2="13" y2="16"></line>
+                                            <path d="M9 3.5h6"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Quantity Surveying Competencies</h4>
+                                    <p>Basic Cost Planning and Benchmarking Etc.</p>
+                                </article>
+
+                                <article class="training-card">
+                                    <div class="training-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="9" cy="9" r="3"></circle>
+                                            <circle cx="16.5" cy="8" r="2.5"></circle>
+                                            <path d="M4.5 18a4.5 4.5 0 0 1 9 0"></path>
+                                            <path d="M13.5 18a3.5 3.5 0 0 1 7 0"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Integration of Cost Management in Project Management</h4>
+                                    <p>For 3rd Party Project Managers with focus on the Impact of Cost to ProjectManagement</p>
+                                </article>
+
+                                 <article class="training-card">
+                                    <div class="training-icon" aria-hidden="true">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="9" cy="9" r="3"></circle>
+                                            <circle cx="16.5" cy="8" r="2.5"></circle>
+                                            <path d="M4.5 18a4.5 4.5 0 0 1 9 0"></path>
+                                            <path d="M13.5 18a3.5 3.5 0 0 1 7 0"></path>
+                                        </svg>
+                                    </div>
+                                    <h4>Introduction to Quantity Surveyor's Ethics and Conduct</h4>
+                                    <p>For all Practicing QS</p>
+                                </article>
+                            </div>
+                        </div>
+
+                        <div class="training-image">
+                            <img src="images/teach.png" alt="Inquisitive training image">
+                            
+                            <article class="training-why">
+                                <div class="training-why-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="9" cy="9" r="3"></circle>
+                                        <circle cx="16.5" cy="8" r="2.5"></circle>
+                                        <path d="M4.5 18a4.5 4.5 0 0 1 9 0"></path>
+                                        <path d="M13.5 18a3.5 3.5 0 0 1 7 0"></path>
+                                    </svg>
+                                </div>
+                                <h4>Why Train with Us?</h4>
+                                <p>- Industry-recognized certifications</p>
+                                <p>- Experienced instructors with real-world expertise</p>
+                                <p>- Flexible learning schedules</p>
+                                <p>- Practical, hands-on approach</p>
+                                <p>- Continuous support and mentorship</p>
+                                <p>- Career advancement opportunities</p>
+                            </article>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section contact-section" id="contact">
+                <div class="section-shell contact-shell">
+                    <div class="contact-shell-card">
+                        <div class="contact-intro">
+                            <p class="section-kicker">Contact</p>
+                            <h2>Get in Touch with Us</h2>
+                            <p>Ready to elevate your construction project or advance your career? Contact us today for expert consultancy and training services.</p>
+                        </div>
+
+                        <div class="contact-grid">
+                            <div class="contact-panel">
+                                <div class="contact-card contact-info-card">
+                                    <h3>Contact Information</h3>
+
+                                    <div class="contact-item">
+                                        <span class="contact-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.38 2.66a2 2 0 0 1-.57 1.71l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 1.71-.57l2.66.38A2 2 0 0 1 22 16.92Z"></path>
+                                            </svg>
+                                        </span>
+                                        <div>
+                                            <strong><p class="contact-label">Phone</p></strong>
+                                            <a href="tel:+63495087730">(049) 508-7730</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <span class="contact-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                                <path d="m4 7 8 6 8-6"></path>
+                                            </svg>
+                                        </span>
+                                        <div>
+                                            <strong><p class="contact-label">Email</p></strong>
+                                            <a href="mailto:inquisitivementor@gmail.com">inquisitivementor@gmail.com</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="contact-item">
+                                        <span class="contact-icon" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 21s6-5.33 6-11a6 6 0 1 0-12 0c0 5.67 6 11 6 11Z"></path>
+                                                <circle cx="12" cy="10" r="2.5"></circle>
+                                            </svg>
+                                        </span>
+                                        <div>
+                                            <strong><p class="contact-label">Service Areas</p></strong>
+                                            <p class="contact-label">Philippines and International</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-card office-hours-card">
+                                    <h3>Office Hours</h3>
+                                    <div class="office-hours-row">
+                                        <span>Monday - Friday</span>
+                                        <strong>8:00 AM - 5:00 PM</strong>
+                                    </div>
+                                    <div class="office-hours-row">
+                                        <span>Saturday</span>
+                                        <strong>9:00 AM - 1:00 PM</strong>
+                                    </div>
+                                    <div class="office-hours-row">
+                                        <span>Sunday</span>
+                                        <strong>Closed</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-card contact-form-card">
+                                <h3>Send Us a Message</h3>
+                                <form class="contact-form" action="#" method="post">
+                                    <div class="form-group">
+                                        <label for="contact-name">Full Name*</label>
+                                        <input id="contact-name" type="text" name="name" placeholder="Full Name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-email">Email Address*</label>
+                                        <input id="contact-email" type="email" name="email" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-phone">Phone Number*</label>
+                                        <input id="contact-phone" type="tel" name="phone" placeholder="Phone Number" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-service">Service Interested In*</label>
+                                        <select id="contact-service" name="service" required>
+                                            <option value="">Select a Service</option>
+                                            <option>Budgetary Cost Plans</option>
+                                            <option>Tendering & Procurement</option>
+                                            <option>Contract Documentation</option>
+                                            <option>Final Account</option>
+                                            <option>Change Management</option>
+                                            <option>Contract Management</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact-message">Message*</label>
+                                        <textarea id="contact-message" name="message" rows="5" placeholder="Tell us about your project or training needs" required></textarea>
+                                    </div>
+                                    <button type="submit" class="button-primary">Send Message</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="section-shell footer-shell">
+                <div class="footer-grid">
+                    <div class="footer-brand-block">
+                        <p class="footer-brand">i<span class="brand-accent">NQ</span>ui<span class="brand-accent">S</span>i<span class="brand-accent">T</span>i<span class="brand-accent">V</span>e</p>
+                        <p class="footer-intro">Cost and contract training, and consultancy services</p>
+                        <p class="footer-description">
+                            New Quantity Surveying Trainings Visionaries - Advocacy and Opportunity
+                            towards Global Competitiveness.
+                        </p>
+
+                        <ul class="footer-contact-list">
+                            <li>
+                                <span class="footer-contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72l.38 2.66a2 2 0 0 1-.57 1.71l-1.2 1.2a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 1.71-.57l2.66.38A2 2 0 0 1 22 16.92Z"></path>
+                                    </svg>
+                                </span>
+                                <a href="tel:+63495087730">(049) 508-7730</a>
+                            </li>
+                            <li>
+                                <span class="footer-contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                        <path d="m4 7 8 6 8-6"></path>
+                                    </svg>
+                                </span>
+                                <a href="mailto:inquisitivementor@gmail.com">inquisitivementor@gmail.com</a>
+                            </li>
+                            <li>
+                                <span class="footer-contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 21s6-5.33 6-11a6 6 0 1 0-12 0c0 5.67 6 11 6 11Z"></path>
+                                        <circle cx="12" cy="10" r="2.5"></circle>
+                                    </svg>
+                                </span>
+                                <span>Liliw, Laguna, Philippines</span>
+                            </li>
+                            <li>
+                                <span class="footer-contact-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M13.5 22v-7h2.3l.4-2.8h-2.7v-1.8c0-.8.3-1.4 1.5-1.4h1.4V6.5c-.2 0-1-.1-2-.1-2 0-3.4 1.2-3.4 3.6v2.1H8.8V15H11v7h2.5Z"></path>
+                                    </svg>
+                                </span>
+                                <a href="https://www.facebook.com/profile.php?id=100063681590674" target="_blank" rel="noopener noreferrer">https://www.facebook.com/profile.php?id=100063681590674</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h2>Services</h2>
+                        <ul class="footer-links">
+                            <li><a href="#services">Budgetary Cost Plans</a></li>
+                            <li><a href="#services">Tendering &amp; Procurement</a></li>
+                            <li><a href="#services">Contract Documentation</a></li>
+                            <li><a href="#services">Financial Reporting</a></li>
+                            <li><a href="#services">Change Management</a></li>
+                            <li><a href="#services">Contract Management</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h2>Company</h2>
+                        <ul class="footer-links">
+                            <li><a href="#about">About NQSTV</a></li>
+                            <li><a href="ui/mv.html">Our Mission</a></li>
+                            <li><a href="ui/team.html">Our Team</a></li>
+                            <li><a href="ui/dev.html">Developers</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2026 NQSTV Cost and Contract Training and Consultancy Services. All rights reserved.</p>
+
+                    <div class="footer-legal">
+                        <div class="footer-legal-item">
+                            <button class="footer-legal-label" type="button">Privacy Policy</button>
+                            <div class="footer-legal-card" role="note">
+                                <strong>Privacy Policy</strong>
+                                <p>
+                                    We only use the contact details you submit to respond to inquiries,
+                                    coordinate services, and improve the website experience.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="footer-legal-item">
+                            <button class="footer-legal-label" type="button">Terms of Service</button>
+                            <div class="footer-legal-card" role="note">
+                                <strong>Terms of Service</strong>
+                                <p>
+                                    Content on this website is for general information about NQSTV
+                                    services and may be updated without prior notice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;"></div>
+    </div>
+
+    <div class="service-modal" id="service-card-modal" aria-hidden="true">
+        <div class="service-modal-backdrop" data-close-service-modal="true"></div>
+        <div class="service-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+            <button class="service-modal-close" type="button" aria-label="Close service details">&times;</button>
+            <div class="service-modal-icon" id="service-modal-icon" aria-hidden="true"></div>
+            <h4 id="service-modal-title"></h4>
+            <p id="service-modal-description" hidden></p>
+            <button class="Inquire service-modal-inquire" type="button" id="service-modal-inquire">Inquire</button>
+        </div>
+    </div>
+
+    <div class="image-viewer-modal" id="featured-image-modal" aria-hidden="true">
+        <div class="image-viewer-backdrop" data-close-image-modal="true"></div>
+        <div class="image-viewer-dialog" role="dialog" aria-modal="true" aria-label="Featured image preview">
+            <button class="image-viewer-close" type="button" aria-label="Close image preview">&times;</button>
+            <img id="featured-image-preview" src="" alt="">
+        </div>
+    </div>
+
+    <div class="contact-message-modal" id="contact-message-modal" aria-hidden="true">
+        <div class="contact-message-backdrop" data-close-contact-message="true"></div>
+        <div class="contact-message-dialog" role="dialog" aria-modal="true" aria-labelledby="contact-message-title" aria-describedby="contact-message-text">
+            <button class="contact-message-close" type="button" aria-label="Close message popup">&times;</button>
+            <div class="contact-message-badge" id="contact-message-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+            </div>
+            <p class="contact-message-eyebrow">Contact Form</p>
+            <h4 id="contact-message-title">Message sent successfully</h4>
+            <p id="contact-message-text">Thank you for reaching out. We have received your message and will get back to you shortly.</p>
+            <button class="button-primary contact-message-action" type="button" id="contact-message-action">Close</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window.$crisp = window.$crisp || [];
+        window.CRISP_WEBSITE_ID = "ff804b92-b2a3-4163-9eb2-6fcae561efd8";
+        (function () {
+            const d = document;
+            const s = d.createElement("script");
+            s.src = "https://client.crisp.chat/l.js";
+            s.async = 1;
+            d.getElementsByTagName("head")[0].appendChild(s);
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="contex.js"></script>
+    <script src="ui/js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+        <script src="ui/js/particle.js"></script>
+    <script>
+        (function () {
+            var loader = document.querySelector(".loader");
+            if (!loader) {
+                return;
+            }
+
+            var startTime = (window.performance && performance.now) ? performance.now() : Date.now();
+            var minVisibleMs = 700;
+
+            function hideLoader() {
+                loader.classList.add("is-hidden");
+                window.setTimeout(function () {
+                    loader.remove();
+                }, 350);
+            }
+
+            window.addEventListener("load", function () {
+                var now = (window.performance && performance.now) ? performance.now() : Date.now();
+                var elapsed = now - startTime;
+                var delay = Math.max(0, minVisibleMs - elapsed);
+                window.setTimeout(hideLoader, delay);
+            });
+        })();
+    </script>
+    
+</body>
+</html>
