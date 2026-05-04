@@ -377,10 +377,10 @@ body {
     padding: 92px 80px 60px;
     border-radius: 30px;
     background:
-        radial-gradient(circle at 16% 12%, rgba(228, 138, 50, 0.18), transparent 20%),
-        linear-gradient(145deg, rgba(43, 32, 24, 0.95), rgba(27, 21, 16, 0.92));
-    border: 1px solid rgba(255, 228, 196, 0.12);
-    box-shadow: 0 24px 48px rgba(23, 16, 12, 0.2);
+        radial-gradient(circle at 16% 12%, rgba(228, 138, 50, 0.22), transparent 22%),
+        linear-gradient(145deg, rgba(76, 56, 39, 0.86), rgba(42, 31, 23, 0.78));
+    border: 1px solid rgba(255, 228, 196, 0.2);
+    box-shadow: 0 24px 48px rgba(23, 16, 12, 0.16);
 }
 
 .project-name {
@@ -389,6 +389,17 @@ body {
 
 .carousel-slide img {
     border: 2px solid rgba(255, 241, 227, 0.24);
+    filter: brightness(1.16) contrast(1.06) saturate(1.04);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.carousel-slide.prev,
+.carousel-slide.next {
+    opacity: 0.86;
+}
+
+.carousel-slide.active img {
+    filter: brightness(1.2) contrast(1.06) saturate(1.05);
 }
 
 .carousel-button {
@@ -3266,7 +3277,7 @@ video {
     .carousel-slide.prev,
     .carousel-slide.next {
         display: flex !important;
-        opacity: 0.5;
+        opacity: 0.78;
         transform: scale(0.72);
     }
 
@@ -3435,7 +3446,7 @@ video {
     .carousel-slide.prev,
     .carousel-slide.next {
         display: flex;
-        opacity: 0.5;
+        opacity: 0.78;
         transform: scale(0.72);
         z-index: 1;
     }
@@ -3707,10 +3718,10 @@ body {
     padding: 92px 80px 60px;
     border-radius: 30px;
     background:
-        radial-gradient(circle at 16% 12%, rgba(228, 138, 50, 0.18), transparent 20%),
-        linear-gradient(145deg, rgba(43, 32, 24, 0.95), rgba(27, 21, 16, 0.92));
-    border: 1px solid rgba(255, 228, 196, 0.12);
-    box-shadow: 0 24px 48px rgba(23, 16, 12, 0.2);
+        radial-gradient(circle at 16% 12%, rgba(228, 138, 50, 0.22), transparent 22%),
+        linear-gradient(145deg, rgba(76, 56, 39, 0.86), rgba(42, 31, 23, 0.78));
+    border: 1px solid rgba(255, 228, 196, 0.2);
+    box-shadow: 0 24px 48px rgba(23, 16, 12, 0.16);
 }
 
 .project-name {
@@ -3719,6 +3730,17 @@ body {
 
 .carousel-slide img {
     border: 2px solid rgba(255, 241, 227, 0.24);
+    filter: brightness(1.16) contrast(1.06) saturate(1.04);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
+.carousel-slide.prev,
+.carousel-slide.next {
+    opacity: 0.86;
+}
+
+.carousel-slide.active img {
+    filter: brightness(1.2) contrast(1.06) saturate(1.05);
 }
 
 .carousel-button {
