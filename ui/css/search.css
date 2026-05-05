@@ -16,9 +16,22 @@
     --shadow-soft: 0 18px 40px rgba(38, 28, 20, 0.12);
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html,
 body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     overflow-y: auto;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 html {
@@ -79,6 +92,7 @@ h6 {
 
 .page-shell {
     width: 100%;
+    max-width: 100vw;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -317,8 +331,12 @@ main {
 }
 
 .site-footer {
+    width: 100%;
     background: #26211d;
+    background-color: #26211d;
     color: #f4ede4;
+    position: relative;
+    z-index: 10;
 }
 
 .search-hero,
