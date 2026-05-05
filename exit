@@ -1,0 +1,53 @@
+[33mcommit 84d2e8a41d45bf3c75532c1263640dae2a918a53[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Tue May 5 10:10:14 2026 +0800
+
+    Google map Fixed
+
+[33mcommit 4f7fd5a18c23b9f1c72adc5acd65940e92065fcc[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Tue May 5 10:05:31 2026 +0800
+
+    Added Security protocol
+
+[33mcommit 03c5d26fa4bba74a4c0e433b06a4d65b9ccd3f39[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Tue May 5 10:04:39 2026 +0800
+
+    Ignored Python related
+
+[33mcommit e8657889107dbc65778ac956c224817a3e5fb2ef[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 18:01:57 2026 +0800
+
+    Added images
+
+[33mcommit 635ebc6280ea86a613406e6c376c13b611514cb5[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 17:28:58 2026 +0800
+
+    Image added
+
+[33mcommit f27ed605fc81741a482cea8cdb34f39b972a8253[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 14:48:58 2026 +0800
+
+    Removed Span
+
+[33mcommit af22f3e77b3e8aaeb0fe2be8ab08710e5ac71546[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 14:25:08 2026 +0800
+
+    Fixed
+
+[33mcommit 7f538f952dd770a97523b83175330124d412427b[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 11:55:56 2026 +0800
+
+    deployed
+
+[33mcommit f156df6586c6ad0a9a4ab0fbadfa59a171dae46b[m
+Author: Gbrltarrz <cpe.gutierrez.gabrielluigi@gmail.com>
+Date:   Mon May 4 11:53:52 2026 +0800
+
+    Ignored Key env
