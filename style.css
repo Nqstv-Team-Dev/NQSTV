@@ -1134,6 +1134,7 @@ main {
     justify-content: center;
 }
 .welcome-image img,
+.welcome-image video,
 .welcome-placeholder {
     width: min(100%, 300px);
     height: auto;
@@ -1144,7 +1145,8 @@ main {
     box-shadow: 0 18px 42px rgba(31, 23, 17, 0.2);
 }
 
-.welcome-image img {
+.welcome-image img,
+.welcome-image video {
     display: block;
     object-fit: cover;
 }
@@ -3939,6 +3941,7 @@ body {
 }
 
 .welcome-image img,
+.welcome-image video,
 .welcome-placeholder {
     width: 100%;
     max-width: 360px;
@@ -4079,6 +4082,7 @@ body {
     }
 
     .welcome-image img,
+    .welcome-image video,
     .welcome-placeholder {
         max-width: 380px;
     }
