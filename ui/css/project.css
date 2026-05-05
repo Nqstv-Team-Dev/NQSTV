@@ -1987,3 +1987,88 @@ article p strong {
         transform: none;
     }
 }
+
+/* Footer legal popovers must stay inside the viewport. */
+.footer-legal,
+.footer-legal-item {
+    max-width: 100%;
+    overflow: visible;
+}
+
+.footer-legal-card {
+    box-sizing: border-box;
+    max-width: calc(100vw - 32px);
+    overflow-wrap: anywhere;
+}
+
+.footer-legal-item:last-child .footer-legal-card {
+    left: auto;
+    right: 0;
+    transform: translateY(10px);
+}
+
+.footer-legal-item:last-child .footer-legal-card::after {
+    left: auto;
+    right: 28px;
+}
+
+.footer-legal-item:last-child:hover .footer-legal-card,
+.footer-legal-item:last-child:focus-within .footer-legal-card {
+    transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+    .footer-bottom {
+        align-items: stretch;
+    }
+
+    .footer-legal {
+        position: relative;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px 16px;
+    }
+
+    .footer-legal-item {
+        position: static;
+    }
+
+    .footer-legal-label {
+        white-space: normal;
+    }
+
+    .footer-legal-card {
+        left: 0;
+        right: auto;
+        width: min(320px, calc(100vw - 32px));
+        transform: translateY(10px);
+    }
+
+    .footer-legal-card::after {
+        left: 24px;
+        right: auto;
+        transform: rotate(45deg) translateY(-6px);
+    }
+
+    .footer-legal-item:hover .footer-legal-card,
+    .footer-legal-item:focus-within .footer-legal-card {
+        transform: translateY(0);
+    }
+
+    .footer-legal-item:last-child .footer-legal-card {
+        left: auto;
+        right: 0;
+        transform: translateY(10px);
+    }
+
+    .footer-legal-item:last-child .footer-legal-card::after {
+        left: auto;
+        right: 28px;
+        transform: rotate(45deg) translateY(-6px);
+    }
+
+    .footer-legal-item:last-child:hover .footer-legal-card,
+    .footer-legal-item:last-child:focus-within .footer-legal-card {
+        transform: translateY(0);
+    }
+}
