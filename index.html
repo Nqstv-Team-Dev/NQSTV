@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
     <link rel="stylesheet" href="style.css">
     <title>Inquisitive</title>
 
@@ -927,22 +927,12 @@ During the course of a project, the quantity surveyors for the contractor and th
         </div>
     </div>
 
-    <script type="text/javascript">
-        window.$crisp = window.$crisp || [];
-        window.CRISP_WEBSITE_ID = "ff804b92-b2a3-4163-9eb2-6fcae561efd8";
-        (function () {
-            const d = document;
-            const s = d.createElement("script");
-            s.src = "https://client.crisp.chat/l.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="contex.js"></script>
-    <script src="ui/js/search.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-        <script src="ui/js/particle.js"></script>
+    <script src="ui/js/crisp-loader.js" defer></script>
+    <script src="ui/vendor/email.min.js" defer></script>
+    <script src="contex.js" defer></script>
+    <script src="ui/js/search.js" defer></script>
+    <script src="ui/vendor/particles.min.js" defer></script>
+    <script src="ui/js/particle.js" defer></script>
     <script>
         (function () {
             var loader = document.querySelector(".loader");
