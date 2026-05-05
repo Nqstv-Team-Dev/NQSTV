@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const brand = document.createElement('div');
         brand.className = 'flip-back-brand';
         brand.innerHTML = `
-            <img class="flip-back-brand-logo" src="../images/logonsqtv.png" alt="NQSTV Logo" loading="lazy">
+            <img class="flip-back-brand-logo" src="../images/logonsqtv-96.webp" alt="NQSTV Logo" width="42" height="42" loading="lazy" decoding="async">
             <div class="flip-back-brand-copy">
                 <div class="flip-back-brand-title">i<span class="brand-accent">NQ</span>ui<span class="brand-accent">S</span>i<span class="brand-accent">T</span>i<span class="brand-accent">V</span>e</div>
                 <div class="flip-back-brand-tagline">NQSTV Cost and Contract Training and Consultancy Services</div>

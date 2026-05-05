@@ -6,10 +6,11 @@
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
+    <link rel="preload" as="image" href="images/nqstvc-hero.webp" type="image/webp" fetchpriority="high">
     <link rel="stylesheet" href="style.css">
     <title>Inquisitive</title>
 
-    <link rel="icon" type="image/png" href="images/logonsqtv.png">
+    <link rel="icon" type="image/png" href="images/logonsqtv-96.png">
 </head>
 <body>
      
@@ -22,8 +23,11 @@
     <div class="page-shell" id="home">
         <header class="site-header">
             <div class="brand">
-                <img src="images/logonsqtv.png"
+                <img src="images/logonsqtv-96.webp"
                      alt="NQSTV Logo"
+                     width="42"
+                     height="42"
+                     decoding="async"
                      style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,0.28);object-fit:cover;flex-shrink:0;">
 
                 <div class="brand-copy">
@@ -90,8 +94,7 @@
                 </div>
                 <div class="banner-side-column">
                     <div class="banner-video">
-                        <video autoplay muted loop playsinline>
-                            <source src="video/qs.mp4" type="video/mp4">
+                        <video muted loop playsinline preload="none" poster="images/nqstvc-hero.webp" data-src="video/qs.mp4" aria-label="Quantity surveying project video">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -121,7 +124,7 @@
                 <div class="section-shell intro-shell">
                     <div class="intro-layout">
                         <div class="welcome-image">
-                            <img src="images/logo3d.png" alt="Inquisitive featured image">
+                            <img src="images/logo3d-640.webp" alt="Inquisitive featured image" width="640" height="640" loading="lazy" decoding="async">
                         </div>
 
                         <div class="intro-copy">
@@ -182,8 +185,8 @@
 
                             <div class="featured-panel-scroll">
                                 <article class="featured-post-card featured-post-primary" data-post-url="ui/projectinfo.html" tabindex="0" role="link" aria-label="Open featured post: Contractor's Quantity Surveyor Vs Client's Quantity Surveyor">
-                                    <button class="featured-post-image-button" type="button" data-full-image="post/post1.png" data-image-alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" aria-label="View featured image full size">
-                                        <img src="post/post1.png" alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" loading="lazy">
+                                    <button class="featured-post-image-button" type="button" data-full-image="post/post1-640.webp" data-image-alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" aria-label="View featured image full size">
+                                        <img src="post/post1-640.webp" alt="Contractor's Quantity Surveyor Vs Client's Quantity Surveyor featured image" width="640" height="800" loading="lazy" decoding="async">
                                     </button>
                                     <div class="featured-post-copy">
                                         <h3>Contractor's Quantity Surveyor Vs Client's Quantity Surveyor</h3>
@@ -196,9 +199,9 @@ During the course of a project, the quantity surveyors for the contractor and th
                                 </article>
 
                                 <div class="featured-post-list">
-                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post2.png" data-preview-alt="Why Should you hire us?" tabindex="0" role="button" aria-label="Open full image for Why Should you hire us?">
-                                        <button class="featured-post-image-button" type="button" data-full-image="post/post2.png" data-image-alt="Why Should you hire us?" aria-label="View Why Should you hire us? full size">
-                                            <img src="post/post2.png" alt="Why Should you hire us?" loading="lazy">
+                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post2-640.webp" data-preview-alt="Why Should you hire us?" tabindex="0" role="button" aria-label="Open full image for Why Should you hire us?">
+                                        <button class="featured-post-image-button" type="button" data-full-image="post/post2-640.webp" data-image-alt="Why Should you hire us?" aria-label="View Why Should you hire us? full size">
+                                            <img src="post/post2-640.webp" alt="Why Should you hire us?" width="640" height="800" loading="lazy" decoding="async">
                                         </button>
                                         <div class="featured-post-copy">
                                             <h3>Why Should you hire us?</h3>
@@ -206,9 +209,9 @@ During the course of a project, the quantity surveyors for the contractor and th
                                         </div>
                                     </article>
 
-                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post3.png" data-preview-alt="Train with us!" tabindex="0" role="button" aria-label="Open full image for Train with us!">
-                                        <button class="featured-post-image-button" type="button" data-full-image="post/post3.png" data-image-alt="Train with us!" aria-label="View Train with us! full size">
-                                            <img src="post/post3.png" alt="Train with us!" loading="lazy">
+                                    <article class="featured-post-card featured-post-secondary" data-preview-image="post/post3-640.webp" data-preview-alt="Train with us!" tabindex="0" role="button" aria-label="Open full image for Train with us!">
+                                        <button class="featured-post-image-button" type="button" data-full-image="post/post3-640.webp" data-image-alt="Train with us!" aria-label="View Train with us! full size">
+                                            <img src="post/post3-640.webp" alt="Train with us!" width="640" height="800" loading="lazy" decoding="async">
                                         </button>
                                         <div class="featured-post-copy">
                                             <h3>Train with us!</h3>
@@ -262,92 +265,92 @@ During the course of a project, the quantity surveyors for the contractor and th
                         </div>
                         <div class="carousel-container">
                             <div class="carousel-slide">
-                                <img src="project-image/gateway.png" onclick = "location.href='ui/projectinfo.html'" alt="Project image 1" loading="lazy">
+                                <img src="project-image/gateway-900.webp" onclick = "location.href='ui/projectinfo.html'" alt="Project image 1" width="900" height="599" loading="lazy" decoding="async">
                                 <p class="project-name">Gateway Mall 2, Cubao</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/cyber.png" alt="Project image 2" loading="lazy">
+                                <img src="project-image/cyber-900.webp" alt="Project image 2" width="600" height="631" loading="lazy" decoding="async">
                                 <p class="project-name">Cyber Park Tower 3,4,5</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/wynn.png" alt="Project image 3" loading="lazy">
+                                <img src="project-image/wynn-900.webp" alt="Project image 3" width="216" height="305" loading="lazy" decoding="async">
                                 <p class="project-name">Wyndham Hotel, Quezon City</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/temple.png" alt="Project image 4" loading="lazy">
+                                <img src="project-image/temple-900.webp" alt="Project image 4" width="236" height="338" loading="lazy" decoding="async">
                                 <p class="project-name">Tuguegarao Temple</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/minor/feu.png" alt="Project image 5" loading="lazy">
+                                <img src="project-image/minor/feu-900.webp" alt="Project image 5" width="516" height="325" loading="lazy" decoding="async">
                                 <p class="project-name">FEU Roosevelt</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/crimson.png" alt="Project image 6" loading="lazy">
+                                <img src="project-image/crimson-900.webp" alt="Project image 6" width="301" height="350" loading="lazy" decoding="async">
                                 <p class="project-name">Crimson Tower</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/chapel.png" alt="Project image 7" loading="lazy">
+                                <img src="project-image/chapel-900.webp" alt="Project image 7" width="377" height="527" loading="lazy" decoding="async">
                                 <p class="project-name">La Salle Chapel and Event Space</p>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="project-image/araneta.png" alt="Project image 8" loading="lazy">
+                                <img src="project-image/araneta-900.webp" alt="Project image 8" width="255" height="233" loading="lazy" decoding="async">
                                 <p class="project-name"> Araneta Coliseum BOH renovation</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/fpip-pav.png" alt="Project image 9" loading="lazy">
+                                <img src="project-image/fpip-pav-900.webp" alt="Project image 9" width="808" height="524" loading="lazy" decoding="async">
                                 <p class="project-name">FPIP Pavilion </p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/guevent.png" alt="Project image 10" loading="lazy">
+                                <img src="project-image/guevent-900.webp" alt="Project image 10" width="234" height="392" loading="lazy" decoding="async">
                                 <p class="project-name">  One Guevent </p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/kalinisan.png" alt="Project image 11" loading="lazy">
+                                <img src="project-image/kalinisan-900.webp" alt="Project image 11" width="443" height="458" loading="lazy" decoding="async">
                                 <p class="project-name">One Kalinisan </p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/greenhills.png" alt="Project image 12" loading="lazy">
+                                <img src="project-image/greenhills-900.webp" alt="Project image 12" width="365" height="406" loading="lazy" decoding="async">
                                 <p class="project-name">Greenhills Mall</p>
                             </div>
                             <div class="carousel-slide">
-                                <img src="project-image/fpip-alpha.png" alt="Project image 13" loading="lazy">
+                                <img src="project-image/fpip-alpha-900.webp" alt="Project image 13" width="312" height="394" loading="lazy" decoding="async">
                                 <p class="project-name">FPIP Alpha</p>
                             </div>
 
                             <div class="carousel-slide">
-                                <img src="project-image/diagon.png" alt="Project image 14" loading="lazy">
+                                <img src="project-image/diagon-900.webp" alt="Project image 14" width="246" height="290" loading="lazy" decoding="async">
                                 <p class="project-name">FPIP Diagon</p>
                             </div>
 
                              <div class="carousel-slide">
-                                <img src="project-image/deguia.png" alt="Project image 15" loading="lazy">
+                                <img src="project-image/deguia-900.webp" alt="Project image 15" width="442" height="396" loading="lazy" decoding="async">
                                 <p class="project-name">De Guia Aquapod</p>
                             </div>
 
                              <div class="carousel-slide">
-                                <img src="project-image/grafik.png" alt="Project image 16" loading="lazy">
+                                <img src="project-image/grafik-900.webp" alt="Project image 16" width="297" height="339" loading="lazy" decoding="async">
                                 <p class="project-name">Grafik Mactan Hotel Resort</p>
                             </div>
 
                              <div class="carousel-slide">
-                                <img src="project-image/upnih.png" alt="Project image 17" loading="lazy">
+                                <img src="project-image/upnih-900.webp" alt="Project image 17" width="318" height="381" loading="lazy" decoding="async">
                                 <p class="project-name">UPNIH Office Fitout</p>
                             </div>
 
                              <div class="carousel-slide">
-                                <img src="project-image/sydney.png" alt="Project image 18" loading="lazy">
+                                <img src="project-image/sydney-900.webp" alt="Project image 18" width="242" height="294" loading="lazy" decoding="async">
                                 <p class="project-name">Sydney Oasis Bacoor Cavite</p>
                             </div>
 
                             
                              <div class="carousel-slide">
-                                <img src="project-image/efco.png" alt="Project image 19" loading="lazy">
+                                <img src="project-image/efco-900.webp" alt="Project image 19" width="649" height="447" loading="lazy" decoding="async">
                                 <p class="project-name">EFCO Office Warehouse</p>
                             </div>
                             
                              <div class="carousel-slide">
-                                <img src="project-image/Hamana-home.png" alt="Project image 20" loading="lazy">
+                                <img src="project-image/Hamana-home-900.webp" alt="Project image 20" width="271" height="197" loading="lazy" decoding="async">
                                 <p class="project-name">Hamana Homes Mabalacat</p>
                             </div>
 
@@ -652,7 +655,7 @@ During the course of a project, the quantity surveyors for the contractor and th
                         </div>
 
                         <div class="training-image">
-                            <img src="images/teach.png" alt="Inquisitive training image">
+                            <img src="images/teach-720.webp" alt="Inquisitive training image" width="720" height="553" loading="lazy" decoding="async">
                             
                             <article class="training-why">
                                 <div class="training-why-icon" aria-hidden="true">

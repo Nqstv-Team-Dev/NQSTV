@@ -59,11 +59,35 @@ if (siteNav && dropdownContent && menuButton) {
     });
 }
 
+const deferredHeroVideo = document.querySelector('.banner-video video[data-src]');
+
+if (deferredHeroVideo) {
+    const loadHeroVideo = () => {
+        if (deferredHeroVideo.dataset.loaded === 'true') {
+            return;
+        }
+
+        const source = document.createElement('source');
+        source.src = deferredHeroVideo.dataset.src;
+        source.type = 'video/mp4';
+        deferredHeroVideo.append(source);
+        deferredHeroVideo.dataset.loaded = 'true';
+        deferredHeroVideo.load();
+        deferredHeroVideo.play().catch(() => {});
+    };
+
+    ['pointerenter', 'click', 'focus'].forEach((eventName) => {
+        deferredHeroVideo.addEventListener(eventName, loadHeroVideo, { once: true });
+    });
+
+    ['scroll', 'pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
+        window.addEventListener(eventName, loadHeroVideo, { once: true, passive: true });
+    });
+}
+
 let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
-
-console.log('Total slides found:', totalSlides);
 
 function updateCarousel() {
     slides.forEach((slide, index) => {
@@ -87,20 +111,14 @@ function updateCarousel() {
     if (currentElement) {
         currentElement.textContent = currentSlide + 1;
     }
-    
-    console.log('Current slide index:', currentSlide, 'Display:', currentSlide + 1);
 }
 
 
 const nextBtn = document.querySelector('.carousel-next');
 const prevBtn = document.querySelector('.carousel-prev');
 
-console.log('Next button found:', !!nextBtn);
-console.log('Prev button found:', !!prevBtn);
-
 if (nextBtn) {
     nextBtn.addEventListener('click', () => {
-        console.log('RIGHT button clicked! Moving to next slide');
         currentSlide = (currentSlide + 1) % totalSlides;
         updateCarousel();
     });
@@ -108,15 +126,15 @@ if (nextBtn) {
 
 if (prevBtn) {
     prevBtn.addEventListener('click', () => {
-        console.log('LEFT button clicked! Moving to previous slide');
         currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
         updateCarousel();
     });
 }
 
 
-updateCarousel();
-console.log('Carousel initialized');
+if (totalSlides > 0) {
+    updateCarousel();
+}
 
 const serviceCards = document.querySelectorAll('.services-section .service-card');
 const serviceModal = document.getElementById('service-card-modal');

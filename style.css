@@ -10,7 +10,10 @@
     --hero-tint: rgba(98, 74, 42, 0.42);
     --hero-fallback-a: #b7a083;
     --hero-fallback-b: #8a755d;
-    --hero-image: url("images/nqstvc.png");
+    --hero-image: image-set(
+        url("images/nqstvc-hero.webp") type("image/webp"),
+        url("images/nqstvc.png") type("image/png")
+    );
     --surface: #f7f1e8;
     --surface-strong: #efe4d6;
     --surface-border: rgba(67, 49, 28, 0.14);
@@ -1269,7 +1272,12 @@ main {
 }
 
 .featured-post-primary img {
-    aspect-ratio: 16 / 10;
+    width: min(100%, 190px);
+    height: 150px;
+    margin: 0 auto;
+    object-fit: contain;
+    background: #f4eee3;
+    border: 1px solid rgba(67, 49, 28, 0.1);
 }
 
 .featured-post-secondary {
