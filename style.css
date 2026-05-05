@@ -3908,6 +3908,259 @@ body {
     }
 }
 
+/* Keep the home hero inside the first viewport. */
+#banner-inquiry.first.section.backgroung-image {
+    min-height: 100svh;
+    padding-top: calc(var(--header-offset) + clamp(10px, 2svh, 18px)) !important;
+    padding-bottom: clamp(18px, 3svh, 34px);
+}
+
+#banner-inquiry .banner-content {
+    align-items: center;
+    gap: clamp(18px, 3vw, 34px);
+    max-width: 1120px;
+    padding-top: 0;
+}
+
+#banner-inquiry .banner-content .message {
+    gap: clamp(10px, 1.6svh, 14px);
+    padding: clamp(16px, 2vw, 24px);
+}
+
+#banner-inquiry .banner-content .message h1 {
+    max-width: 16ch;
+    font-size: clamp(2.35rem, 4.6vw, 4.15rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+}
+
+#banner-inquiry .message p {
+    font-size: clamp(0.92rem, 1.15vw, 1rem);
+    line-height: 1.5;
+}
+
+#banner-inquiry .hero-actions {
+    gap: 10px;
+}
+
+#banner-inquiry .button-primary,
+#banner-inquiry .button-secondary {
+    min-height: 42px;
+    padding: 10px 18px;
+}
+
+#banner-inquiry .hero-stats {
+    gap: 10px;
+    margin-top: 0;
+}
+
+#banner-inquiry .hero-stat {
+    padding: 12px;
+    border-radius: 16px;
+}
+
+#banner-inquiry .hero-stat strong {
+    font-size: 0.92rem;
+}
+
+#banner-inquiry .hero-stat span {
+    margin-top: 6px;
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+#banner-inquiry .banner-side-column {
+    gap: 12px;
+}
+
+#banner-inquiry .banner-video {
+    aspect-ratio: 16 / 9;
+}
+
+#banner-inquiry .banner-video video {
+    min-height: 0;
+    height: clamp(170px, 31svh, 260px);
+    border-radius: 20px;
+}
+
+#banner-inquiry .hero-panel-card {
+    gap: 10px;
+    padding: 16px;
+    border-radius: 20px;
+}
+
+#banner-inquiry .hero-panel-header h2 {
+    font-size: clamp(1.18rem, 1.75vw, 1.45rem);
+    line-height: 1.08;
+}
+
+#banner-inquiry .hero-panel-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+#banner-inquiry .hero-panel-links {
+    gap: 7px;
+}
+
+#banner-inquiry .hero-panel-links a {
+    min-height: 36px;
+    padding-inline: 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    #banner-inquiry .banner-content {
+        grid-template-columns: minmax(0, 1fr) minmax(230px, 0.65fr);
+    }
+
+    #banner-inquiry .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 860px) {
+    #banner-inquiry.first.section.backgroung-image {
+        padding-bottom: 20px;
+    }
+
+    #banner-inquiry .banner-content {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    #banner-inquiry .banner-content .message {
+        padding: 16px;
+    }
+
+    #banner-inquiry .banner-content .message h1 {
+        max-width: 18ch;
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+
+    #banner-inquiry .banner-side-column {
+        grid-template-columns: minmax(150px, 0.75fr) minmax(0, 1fr);
+        align-items: stretch;
+        width: 100%;
+    }
+
+    #banner-inquiry .banner-video video {
+        height: 100%;
+        max-height: 210px;
+    }
+}
+
+@media (max-width: 640px) {
+    #banner-inquiry.first.section.backgroung-image {
+        min-height: auto;
+        padding-top: 12px !important;
+        padding-bottom: 14px;
+    }
+
+    #banner-inquiry .banner-content {
+        gap: 8px;
+    }
+
+    #banner-inquiry .banner-content .message {
+        order: 1;
+        gap: 7px;
+        padding: 12px;
+    }
+
+    #banner-inquiry .banner-content .message h1 {
+        max-width: 18ch;
+        font-size: clamp(1.6rem, 7.4vw, 2.05rem);
+        line-height: 1;
+    }
+
+    #banner-inquiry .banner-tagline {
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+    }
+
+    #banner-inquiry .message p {
+        font-size: 0.78rem;
+        line-height: 1.32;
+    }
+
+    #banner-inquiry .hero-actions {
+        flex-wrap: nowrap;
+    }
+
+    #banner-inquiry .button-primary,
+    #banner-inquiry .button-secondary {
+        flex: 1 1 0;
+        width: auto;
+        min-height: 36px;
+        padding: 8px 10px;
+        font-size: 0.78rem;
+    }
+
+    #banner-inquiry .hero-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
+    }
+
+    #banner-inquiry .hero-stat {
+        padding: 7px;
+        border-radius: 12px;
+    }
+
+    #banner-inquiry .hero-stat strong {
+        font-size: 0.7rem;
+        line-height: 1.16;
+    }
+
+    #banner-inquiry .hero-stat span {
+        margin-top: 4px;
+        font-size: 0.58rem;
+        line-height: 1.18;
+    }
+
+    #banner-inquiry .banner-side-column {
+        order: 2;
+        grid-template-columns: minmax(104px, 0.6fr) minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    #banner-inquiry .banner-video {
+        order: 0;
+    }
+
+    #banner-inquiry .banner-video video {
+        height: 100%;
+        max-height: 150px;
+        border-radius: 16px;
+    }
+
+    #banner-inquiry .hero-panel-card {
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    #banner-inquiry .hero-panel-header h2 {
+        font-size: 1.05rem;
+    }
+
+    #banner-inquiry .hero-panel-text {
+        display: block;
+        font-size: 0.64rem;
+        line-height: 1.2;
+    }
+
+    #banner-inquiry .hero-panel-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    #banner-inquiry .hero-panel-links a {
+        min-height: 32px;
+        padding-inline: 10px;
+        font-size: 0.75rem;
+    }
+}
+
 /* About section balance */
 .intro-section {
     padding-top: clamp(0px, 1vw, 12px);
