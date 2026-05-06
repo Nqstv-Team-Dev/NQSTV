@@ -439,10 +439,6 @@ if (emailForms.length > 0 && window.emailjs) {
         trainingNotify: {
             serviceId: 'service_dokx5hx',
             templateId: 'template_38ht78j'
-        },
-        trainingAutoReply: {
-            serviceId: 'service_dokx5hx',
-            templateId: 'template_kskbn4b'
         }
     };
 
@@ -450,8 +446,7 @@ if (emailForms.length > 0 && window.emailjs) {
         EMAILJS_CONFIG.publicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
         EMAILJS_CONFIG.trainingPublicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
         EMAILJS_CONFIG.contact.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
-        EMAILJS_CONFIG.trainingNotify.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
-        EMAILJS_CONFIG.trainingAutoReply.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
+        EMAILJS_CONFIG.trainingNotify.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
 
     if (hasConfigValues) {
         emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
@@ -502,37 +497,13 @@ if (emailForms.length > 0 && window.emailjs) {
                                 reply_to: commonTemplateParams.email
                             }
                         };
-                        const trainingAutoReplyMessage = {
-                            config: EMAILJS_CONFIG.trainingAutoReply,
-                            params: {
-                                ...commonTemplateParams,
-                                to_email: commonTemplateParams.email,
-                                reply_to: EMAILJS_CONFIG.trainingEmail
-                            }
-                        };
-                        const [notifyResult, autoReplyResult] = await Promise.allSettled([
-                            emailjs.send(
-                                trainingNotifyMessage.config.serviceId,
-                                trainingNotifyMessage.config.templateId,
-                                trainingNotifyMessage.params,
-                                { publicKey: EMAILJS_CONFIG.trainingPublicKey }
-                            ),
-                            emailjs.send(
-                                trainingAutoReplyMessage.config.serviceId,
-                                trainingAutoReplyMessage.config.templateId,
-                                trainingAutoReplyMessage.params,
-                                { publicKey: EMAILJS_CONFIG.trainingPublicKey }
-                            )
-                        ]);
 
-                        if (notifyResult.status === 'rejected') {
-                            console.warn('EmailJS training notification failed:', notifyResult.reason);
-                            throw notifyResult.reason;
-                        }
-
-                        if (autoReplyResult.status === 'rejected') {
-                            console.warn('EmailJS training auto-reply failed:', autoReplyResult.reason);
-                        }
+                        await emailjs.send(
+                            trainingNotifyMessage.config.serviceId,
+                            trainingNotifyMessage.config.templateId,
+                            trainingNotifyMessage.params,
+                            { publicKey: EMAILJS_CONFIG.trainingPublicKey }
+                        );
                     } else {
                         const contactMessage = {
                             config: EMAILJS_CONFIG.contact,
