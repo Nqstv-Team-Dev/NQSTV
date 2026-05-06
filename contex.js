@@ -341,7 +341,7 @@ featuredPostToggles.forEach((button) => {
     });
 });
 
-const contactForm = document.querySelector('.contact-form');
+const contactForms = document.querySelectorAll('.contact-form, .training-enroll-form');
 const contactMessageModal = document.getElementById('contact-message-modal');
 const contactMessageClose = document.querySelector('.contact-message-close');
 const contactMessageBadge = document.getElementById('contact-message-badge');
@@ -424,7 +424,7 @@ if (contactMessageModal && contactMessageClose && contactMessageAction) {
     });
 }
 
-if (contactForm && window.emailjs) {
+if (contactForms.length > 0 && window.emailjs) {
     const EMAILJS_CONFIG = {
         publicKey: 'kv8lqdqRMoOoJwetf',
         serviceId: 'service_jt71ut4',
@@ -438,53 +438,75 @@ if (contactForm && window.emailjs) {
     if (hasConfigValues) {
         emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
 
-        contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
+        contactForms.forEach((form) => {
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
 
-            const submitButton = contactForm.querySelector('button[type="submit"]');
-            const originalButtonText = submitButton ? submitButton.textContent : '';
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton ? submitButton.textContent : '';
+                const isTrainingEnrollForm = form.classList.contains('training-enroll-form');
 
-            if (submitButton) {
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-            }
-
-            const templateParams = {
-                name: contactForm.name.value.trim(),
-                email: contactForm.email.value.trim(),
-                phone: contactForm.phone.value.trim(),
-                service: contactForm.service.value,
-                message: contactForm.message.value.trim()
-            };
-
-            try {
-                await emailjs.send(
-                    EMAILJS_CONFIG.serviceId,
-                    EMAILJS_CONFIG.templateId,
-                    templateParams
-                );
-
-                contactForm.reset();
-                openContactMessageModal(
-                    'success',
-                    'Message sent successfully',
-                    'Thank you for reaching out. We have received your message and will get back to you shortly.',
-                    submitButton
-                );
-            } catch (error) {
-                console.error('EmailJS send failed:', error);
-                openContactMessageModal(
-                    'error',
-                    'Unable to send your message',
-                    'Something went wrong while sending your email. Please try again in a moment.',
-                    submitButton
-                );
-            } finally {
                 if (submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = true;
+                    submitButton.textContent = isTrainingEnrollForm ? 'Enrolling...' : 'Sending...';
                 }
-            }
+
+                const getFormValue = (fieldName) => {
+                    const field = form.elements.namedItem(fieldName);
+                    return field instanceof HTMLInputElement ||
+                        field instanceof HTMLSelectElement ||
+                        field instanceof HTMLTextAreaElement
+                        ? field.value.trim()
+                        : '';
+                };
+
+                const templateParams = isTrainingEnrollForm
+                    ? {
+                        name: getFormValue('name'),
+                        email: getFormValue('email'),
+                        phone: '',
+                        service: 'Training Enrollment',
+                        message: 'Training enrollment request from the homepage training section.'
+                    }
+                    : {
+                        name: getFormValue('name'),
+                        email: getFormValue('email'),
+                        phone: getFormValue('phone'),
+                        service: getFormValue('service'),
+                        message: getFormValue('message')
+                    };
+
+                try {
+                    await emailjs.send(
+                        EMAILJS_CONFIG.serviceId,
+                        EMAILJS_CONFIG.templateId,
+                        templateParams
+                    );
+
+                    form.reset();
+                    openContactMessageModal(
+                        'success',
+                        isTrainingEnrollForm ? 'Enrollment request sent' : 'Message sent successfully',
+                        isTrainingEnrollForm
+                            ? 'Thank you for enrolling. We have received your details and will get back to you shortly.'
+                            : 'Thank you for reaching out. We have received your message and will get back to you shortly.',
+                        submitButton
+                    );
+                } catch (error) {
+                    console.error('EmailJS send failed:', error);
+                    openContactMessageModal(
+                        'error',
+                        isTrainingEnrollForm ? 'Unable to send enrollment' : 'Unable to send your message',
+                        'Something went wrong while sending your email. Please try again in a moment.',
+                        submitButton
+                    );
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = originalButtonText;
+                    }
+                }
+            });
         });
     } else {
         console.warn('EmailJS is not active yet. Add your public key and service ID in contex.js.');
