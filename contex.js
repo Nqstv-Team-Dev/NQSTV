@@ -341,7 +341,9 @@ featuredPostToggles.forEach((button) => {
     });
 });
 
-const contactForms = document.querySelectorAll('.contact-form, .training-enroll-form');
+const contactForms = document.querySelectorAll('.contact-form');
+const trainingEnrollForms = document.querySelectorAll('.training-enroll-form');
+const emailForms = [...contactForms, ...trainingEnrollForms];
 const contactMessageModal = document.getElementById('contact-message-modal');
 const contactMessageClose = document.querySelector('.contact-message-close');
 const contactMessageBadge = document.getElementById('contact-message-badge');
@@ -424,9 +426,10 @@ if (contactMessageModal && contactMessageClose && contactMessageAction) {
     });
 }
 
-if (contactForms.length > 0 && window.emailjs) {
+if (emailForms.length > 0 && window.emailjs) {
     const EMAILJS_CONFIG = {
         publicKey: 'kv8lqdqRMoOoJwetf',
+        trainingPublicKey: 'APWgxh9yJgFlullkZ',
         contactEmail: 'nqstvlinkedin@gmail.com',
         trainingEmail: 'nqstv.trainings@gmail.com',
         contact: {
@@ -434,17 +437,18 @@ if (contactForms.length > 0 && window.emailjs) {
             templateId: 'template_54thxm5'
         },
         trainingNotify: {
-            serviceId: 'service_w50btat',
-            templateId: 'template_0ascenl'
+            serviceId: 'service_dokx5hx',
+            templateId: 'template_38ht78j'
         },
         trainingAutoReply: {
-            serviceId: 'service_w50btat',
-            templateId: 'template_y3q7p1u'
+            serviceId: 'service_dokx5hx',
+            templateId: 'template_kskbn4b'
         }
     };
 
     const hasConfigValues =
         EMAILJS_CONFIG.publicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
+        EMAILJS_CONFIG.trainingPublicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
         EMAILJS_CONFIG.contact.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
         EMAILJS_CONFIG.trainingNotify.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
         EMAILJS_CONFIG.trainingAutoReply.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
@@ -452,7 +456,7 @@ if (contactForms.length > 0 && window.emailjs) {
     if (hasConfigValues) {
         emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
 
-        contactForms.forEach((form) => {
+        emailForms.forEach((form) => {
             form.addEventListener('submit', async (event) => {
                 event.preventDefault();
 
@@ -488,58 +492,57 @@ if (contactForms.length > 0 && window.emailjs) {
                     service: selectedService,
                     message: messageText
                 };
-                const contactMessage = {
-                    config: EMAILJS_CONFIG.contact,
-                    params: {
-                        ...commonTemplateParams,
-                        to_email: EMAILJS_CONFIG.contactEmail,
-                        reply_to: commonTemplateParams.email
-                    }
-                };
-                const trainingNotifyMessage = {
-                    config: EMAILJS_CONFIG.trainingNotify,
-                    params: {
-                        ...commonTemplateParams,
-                        to_email: EMAILJS_CONFIG.trainingEmail,
-                        reply_to: commonTemplateParams.email
-                    }
-                };
-                const trainingAutoReplyMessage = {
-                    config: EMAILJS_CONFIG.trainingAutoReply,
-                    params: {
-                        ...commonTemplateParams,
-                        to_email: commonTemplateParams.email,
-                        reply_to: EMAILJS_CONFIG.trainingEmail
-                    }
-                };
-
                 try {
                     if (isTrainingEnrollForm) {
+                        const trainingNotifyMessage = {
+                            config: EMAILJS_CONFIG.trainingNotify,
+                            params: {
+                                ...commonTemplateParams,
+                                to_email: EMAILJS_CONFIG.trainingEmail,
+                                reply_to: commonTemplateParams.email
+                            }
+                        };
+                        const trainingAutoReplyMessage = {
+                            config: EMAILJS_CONFIG.trainingAutoReply,
+                            params: {
+                                ...commonTemplateParams,
+                                to_email: commonTemplateParams.email,
+                                reply_to: EMAILJS_CONFIG.trainingEmail
+                            }
+                        };
                         const [notifyResult, autoReplyResult] = await Promise.allSettled([
                             emailjs.send(
                                 trainingNotifyMessage.config.serviceId,
                                 trainingNotifyMessage.config.templateId,
-                                trainingNotifyMessage.params
+                                trainingNotifyMessage.params,
+                                { publicKey: EMAILJS_CONFIG.trainingPublicKey }
                             ),
                             emailjs.send(
                                 trainingAutoReplyMessage.config.serviceId,
                                 trainingAutoReplyMessage.config.templateId,
-                                trainingAutoReplyMessage.params
+                                trainingAutoReplyMessage.params,
+                                { publicKey: EMAILJS_CONFIG.trainingPublicKey }
                             )
                         ]);
 
                         if (notifyResult.status === 'rejected') {
                             console.warn('EmailJS training notification failed:', notifyResult.reason);
+                            throw notifyResult.reason;
                         }
 
                         if (autoReplyResult.status === 'rejected') {
                             console.warn('EmailJS training auto-reply failed:', autoReplyResult.reason);
                         }
-
-                        if (notifyResult.status === 'rejected' && autoReplyResult.status === 'rejected') {
-                            throw notifyResult.reason;
-                        }
                     } else {
+                        const contactMessage = {
+                            config: EMAILJS_CONFIG.contact,
+                            params: {
+                                ...commonTemplateParams,
+                                to_email: EMAILJS_CONFIG.contactEmail,
+                                reply_to: commonTemplateParams.email
+                            }
+                        };
+
                         await emailjs.send(
                             contactMessage.config.serviceId,
                             contactMessage.config.templateId,
