@@ -427,11 +427,17 @@ if (contactMessageModal && contactMessageClose && contactMessageAction) {
 if (contactForms.length > 0 && window.emailjs) {
     const EMAILJS_CONFIG = {
         publicKey: 'kv8lqdqRMoOoJwetf',
+        contactEmail: 'nqstvlinkedin@gmail.com',
+        trainingEmail: 'nqstv.trainings@gmail.com',
         contact: {
             serviceId: 'service_jt71ut4',
             templateId: 'template_54thxm5'
         },
-        trainingEnroll: {
+        trainingNotify: {
+            serviceId: 'service_w50btat',
+            templateId: 'template_0ascenl'
+        },
+        trainingAutoReply: {
             serviceId: 'service_w50btat',
             templateId: 'template_y3q7p1u'
         }
@@ -440,7 +446,8 @@ if (contactForms.length > 0 && window.emailjs) {
     const hasConfigValues =
         EMAILJS_CONFIG.publicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
         EMAILJS_CONFIG.contact.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
-        EMAILJS_CONFIG.trainingEnroll.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
+        EMAILJS_CONFIG.trainingNotify.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
+        EMAILJS_CONFIG.trainingAutoReply.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
 
     if (hasConfigValues) {
         emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
@@ -452,15 +459,6 @@ if (contactForms.length > 0 && window.emailjs) {
                 const submitButton = form.querySelector('button[type="submit"]');
                 const originalButtonText = submitButton ? submitButton.textContent : '';
                 const isTrainingEnrollForm = form.classList.contains('training-enroll-form');
-                const emailConfigs = isTrainingEnrollForm
-                    ? [EMAILJS_CONFIG.contact, EMAILJS_CONFIG.trainingEnroll]
-                    : [EMAILJS_CONFIG.contact];
-
-                if (submitButton) {
-                    submitButton.disabled = true;
-                    submitButton.textContent = isTrainingEnrollForm ? 'Enrolling...' : 'Sending...';
-                }
-
                 const getFormValue = (fieldName) => {
                     const field = form.elements.namedItem(fieldName);
                     return field instanceof HTMLInputElement ||
@@ -469,33 +467,85 @@ if (contactForms.length > 0 && window.emailjs) {
                         ? field.value.trim()
                         : '';
                 };
+                const selectedService = isTrainingEnrollForm ? 'Training Enrollment' : getFormValue('service');
+                const messageText = isTrainingEnrollForm
+                    ? 'Training enrollment request from the homepage training section.'
+                    : getFormValue('message');
 
-                const templateParams = isTrainingEnrollForm
-                    ? {
-                        name: getFormValue('name'),
-                        email: getFormValue('email'),
-                        phone: '',
-                        service: 'Training Enrollment',
-                        message: 'Training enrollment request from the homepage training section.'
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = isTrainingEnrollForm ? 'Enrolling...' : 'Sending...';
+                }
+
+                const commonTemplateParams = {
+                    name: getFormValue('name'),
+                    email: getFormValue('email'),
+                    from_name: getFormValue('name'),
+                    from_email: getFormValue('email'),
+                    user_name: getFormValue('name'),
+                    user_email: getFormValue('email'),
+                    phone: isTrainingEnrollForm ? '' : getFormValue('phone'),
+                    service: selectedService,
+                    message: messageText
+                };
+                const contactMessage = {
+                    config: EMAILJS_CONFIG.contact,
+                    params: {
+                        ...commonTemplateParams,
+                        to_email: EMAILJS_CONFIG.contactEmail,
+                        reply_to: commonTemplateParams.email
                     }
-                    : {
-                        name: getFormValue('name'),
-                        email: getFormValue('email'),
-                        phone: getFormValue('phone'),
-                        service: getFormValue('service'),
-                        message: getFormValue('message')
-                    };
+                };
+                const trainingNotifyMessage = {
+                    config: EMAILJS_CONFIG.trainingNotify,
+                    params: {
+                        ...commonTemplateParams,
+                        to_email: EMAILJS_CONFIG.trainingEmail,
+                        reply_to: commonTemplateParams.email
+                    }
+                };
+                const trainingAutoReplyMessage = {
+                    config: EMAILJS_CONFIG.trainingAutoReply,
+                    params: {
+                        ...commonTemplateParams,
+                        to_email: commonTemplateParams.email,
+                        reply_to: EMAILJS_CONFIG.trainingEmail
+                    }
+                };
 
                 try {
-                    await Promise.all(
-                        emailConfigs.map((emailConfig) =>
+                    if (isTrainingEnrollForm) {
+                        const [notifyResult, autoReplyResult] = await Promise.allSettled([
                             emailjs.send(
-                                emailConfig.serviceId,
-                                emailConfig.templateId,
-                                templateParams
+                                trainingNotifyMessage.config.serviceId,
+                                trainingNotifyMessage.config.templateId,
+                                trainingNotifyMessage.params
+                            ),
+                            emailjs.send(
+                                trainingAutoReplyMessage.config.serviceId,
+                                trainingAutoReplyMessage.config.templateId,
+                                trainingAutoReplyMessage.params
                             )
-                        )
-                    );
+                        ]);
+
+                        if (notifyResult.status === 'rejected') {
+                            console.warn('EmailJS training notification failed:', notifyResult.reason);
+                        }
+
+                        if (autoReplyResult.status === 'rejected') {
+                            console.warn('EmailJS training auto-reply failed:', autoReplyResult.reason);
+                        }
+
+                        if (notifyResult.status === 'rejected' && autoReplyResult.status === 'rejected') {
+                            throw notifyResult.reason;
+                        }
+                    } else {
+                        await emailjs.send(
+                            contactMessage.config.serviceId,
+                            contactMessage.config.templateId,
+                            contactMessage.params
+                        );
+                    }
 
                     form.reset();
                     openContactMessageModal(
