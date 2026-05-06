@@ -473,7 +473,7 @@ if (emailForms.length > 0 && window.emailjs) {
                 };
                 const selectedService = isTrainingEnrollForm ? 'Training Enrollment' : getFormValue('service');
                 const messageText = isTrainingEnrollForm
-                    ? 'Training enrollment request from the homepage training section.'
+                    ? 'Training enrollment request from the client.'
                     : getFormValue('message');
 
                 if (submitButton) {
