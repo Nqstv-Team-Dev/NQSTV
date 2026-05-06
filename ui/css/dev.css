@@ -85,8 +85,9 @@ main {
 }
 
 .site-header {
-    position: relative;
-    z-index: 80;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: grid;
     grid-template-columns: auto 1fr auto;
     align-items: center;
