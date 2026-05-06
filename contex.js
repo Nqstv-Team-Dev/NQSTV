@@ -427,13 +427,20 @@ if (contactMessageModal && contactMessageClose && contactMessageAction) {
 if (contactForms.length > 0 && window.emailjs) {
     const EMAILJS_CONFIG = {
         publicKey: 'kv8lqdqRMoOoJwetf',
-        serviceId: 'service_jt71ut4',
-        templateId: 'template_54thxm5'
+        contact: {
+            serviceId: 'service_jt71ut4',
+            templateId: 'template_54thxm5'
+        },
+        trainingEnroll: {
+            serviceId: 'service_w50btat',
+            templateId: 'template_y3q7p1u'
+        }
     };
 
     const hasConfigValues =
         EMAILJS_CONFIG.publicKey !== 'PASTE_YOUR_PUBLIC_KEY_HERE' &&
-        EMAILJS_CONFIG.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
+        EMAILJS_CONFIG.contact.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE' &&
+        EMAILJS_CONFIG.trainingEnroll.serviceId !== 'PASTE_YOUR_SERVICE_ID_HERE';
 
     if (hasConfigValues) {
         emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
@@ -445,6 +452,9 @@ if (contactForms.length > 0 && window.emailjs) {
                 const submitButton = form.querySelector('button[type="submit"]');
                 const originalButtonText = submitButton ? submitButton.textContent : '';
                 const isTrainingEnrollForm = form.classList.contains('training-enroll-form');
+                const emailConfigs = isTrainingEnrollForm
+                    ? [EMAILJS_CONFIG.contact, EMAILJS_CONFIG.trainingEnroll]
+                    : [EMAILJS_CONFIG.contact];
 
                 if (submitButton) {
                     submitButton.disabled = true;
@@ -477,10 +487,14 @@ if (contactForms.length > 0 && window.emailjs) {
                     };
 
                 try {
-                    await emailjs.send(
-                        EMAILJS_CONFIG.serviceId,
-                        EMAILJS_CONFIG.templateId,
-                        templateParams
+                    await Promise.all(
+                        emailConfigs.map((emailConfig) =>
+                            emailjs.send(
+                                emailConfig.serviceId,
+                                emailConfig.templateId,
+                                templateParams
+                            )
+                        )
                     );
 
                     form.reset();
