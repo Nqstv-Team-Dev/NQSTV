@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nqstv-team-dev.github.io/NQSTV/sitemap.xml
