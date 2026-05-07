@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src 'self' https://api.emailjs.com https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat; style-src 'self' 'unsafe-inline' https://*.crisp.chat https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat https://fonts.gstatic.com; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src 'self' https://api.emailjs.com https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
     
     <meta property="og:title" content="Inquisitive - NQSTV Training & Consultancy">
     <meta property="og:description" content="NQSTV cost and Contract Training and Consultancy Services">
@@ -32,8 +36,6 @@
     <div class ="loader">
 
     </div>
-    
-    
 
     <div class="page-shell" id="home">
         <header class="site-header">
@@ -84,7 +86,7 @@
         </header>
         <section class="first section backgroung-image" id="banner-inquiry">
             <div class="banner-content">
-                <div class="message">
+                <div class="message reveal">
                     <span class="banner-tagline">Let's Create Something Great </span>
                     <h1>Commercial guidance for projects that need clarity from day one.</h1>
                     <p>Partner with a team that combines cost planning, contract strategy, and practical training to help clients and professionals move with confidence.</p>
@@ -92,7 +94,7 @@
                         <a href="#contact" class="button-primary btn-banner">Get in Touch</a>
                         <a href="ui/projectinfo.html" class="button-secondary btn-banner-secondary">View Portfolio</a>
                     </div>
-                    <div class="hero-stats" aria-label="Company highlights">
+                    <div class="hero-stats reveal" aria-label="Company highlights">
                         <article class="hero-stat">
                             <strong>Pre to post contract</strong>
                             <span>Support that stays structured from planning through closeout.</span>
@@ -108,12 +110,12 @@
                     </div>
                 </div>
                 <div class="banner-side-column">
-                    <div class="banner-video">
+                    <div class="banner-video reveal">
                         <video muted loop playsinline preload="none" poster="images/nqstvc-hero.webp" data-src="video/qs.mp4" aria-label="Quantity surveying project video">
                             Your browser does not support the video tag.
                         </video>
                     </div>
-                    <article class="hero-panel-card" aria-label="Quick links">
+                    <article class="hero-panel-card reveal" aria-label="Quick links">
                         <div class="hero-panel-header">
                             <div>
                                 <p class="section-kicker">Quick Access</p>
@@ -138,14 +140,14 @@
             <section class="content-section intro-section" id="about">
                 <div class="section-shell intro-shell">
                     <div class="intro-layout">
-                        <div class="welcome-image">
+                        <div class="welcome-image reveal">
                             <video autoplay muted loop playsinline preload="metadata" aria-label="Spinning Inquisitive 3D logo">
                                 <source src="video/Logospin.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
 
-                        <div class="intro-copy">
+                        <div class="intro-copy reveal">
                             <p class="section-kicker">About Us</p>
                             <h1>Welcome to Inquisitive</h1>
                             <p>
@@ -161,7 +163,7 @@
 
                         </div>
 
-                        <div class ="point-card">
+                        <div class ="point-card reveal">
                             <div class="point-card-item">
                                 <div class="point-card-icon" aria-hidden="true">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -193,7 +195,7 @@
                             </div>
                         </div>
 
-                        <aside class="featured-panel" aria-labelledby="featured-post-heading">
+                        <aside class="featured-panel reveal" aria-labelledby="featured-post-heading">
                             <div class="featured-panel-header">
                                 <div>
                                     <p class="section-kicker">Featured Post</p>
@@ -987,6 +989,25 @@ During the course of a project, the quantity surveyors for the contractor and th
     <script src="ui/js/search.js" defer></script>
     <script src="ui/vendor/particles.min.js" defer></script>
     <script src="ui/js/particle.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const reveals = document.querySelectorAll(".reveal");
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.15
+            });
+
+            reveals.forEach((reveal) => revealObserver.observe(reveal));
+        });
+    </script>
     <script>
         (function () {
             var loader = document.querySelector(".loader");
