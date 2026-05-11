@@ -1,0 +1,481 @@
+/* Shared cool theme overrides for all UI subpages. */
+:root {
+    --page-bg: #edf8fa;
+    --page-bg-soft: #f8fbfb;
+    --page-bg-deep: #dcecef;
+    --header-bg: #10272f;
+    --header-border: rgba(151, 226, 229, 0.22);
+    --text-light: #f7fcfd;
+    --muted-light: #b8d5d8;
+    --accent: #31d4dc;
+    --accent-deep: #0f7f8c;
+    --accent-soft: rgba(49, 212, 220, 0.14);
+    --search-bg: #f7fdfd;
+    --search-text: #4d6870;
+    --hero-tint: rgba(8, 34, 43, 0.56);
+    --hero-fallback-a: #7fd7de;
+    --hero-fallback-b: #2d8d99;
+    --ink: #102a33;
+    --ink-muted: #4d6870;
+    --ink-soft: #4d6870;
+    --text-main: #102a33;
+    --text-body: #4d6870;
+    --text-muted: #4d6870;
+    --surface: rgba(255, 255, 255, 0.9);
+    --surface-strong: #e6f3f4;
+    --surface-elevated: rgba(255, 255, 255, 0.9);
+    --surface-border: rgba(23, 76, 87, 0.14);
+    --card-border: rgba(23, 76, 87, 0.13);
+    --panel-dark: #10272f;
+    --panel-border: rgba(188, 239, 241, 0.2);
+    --surface-dark: #10272f;
+    --shadow-soft: 0 16px 34px rgba(19, 54, 62, 0.1);
+    --shadow-strong: 0 26px 56px rgba(15, 43, 51, 0.16);
+}
+
+body {
+    color: var(--ink);
+    background: #f8fbfb;
+}
+
+#particles-js,
+.team-particles,
+.developers-particles {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+    opacity: 0.38;
+}
+
+#particles-js canvas,
+.team-particles canvas,
+.developers-particles canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+
+.page-shell > main,
+.page-shell > footer {
+    position: relative;
+    z-index: 1;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid rgba(49, 212, 220, 0.72);
+    outline-offset: 4px;
+}
+
+.site-header {
+    background: linear-gradient(0deg, rgb(0 0 0 / 98%), rgb(16 57 65 / 98%));
+    border-color: var(--header-border);
+    box-shadow: 0 12px 30px rgba(5, 22, 28, 0.18);
+}
+
+.site-footer {
+    background: #282a2d;
+    color: #f5f5f5;
+}
+
+.site-footer,
+.site-footer p,
+.site-footer span,
+.site-footer a,
+.site-footer h2,
+.site-footer li,
+.site-footer .footer-legal-label {
+    color: #f5f5f5;
+}
+
+.brand-title,
+.footer-brand {
+    color: #f9feff;
+}
+
+.brand-accent,
+.site-nav a:hover,
+.footer-links a:hover,
+.footer-contact-list a:hover,
+.footer-legal-label:hover,
+.footer-legal-item:hover .footer-legal-label,
+.footer-legal-item:focus-within .footer-legal-label {
+    color: #7ce8ea;
+}
+
+.site-nav a::after {
+    background: linear-gradient(90deg, #7ce8ea, #d8fbfb);
+}
+
+.brand-tagline,
+.site-header .brand-tagline {
+    color: #ffffff;
+}
+
+.search-form {
+    background: rgba(247, 253, 253, 0.96);
+    border: 1px solid rgba(158, 211, 217, 0.72);
+}
+
+.search-icon {
+    border-color: var(--accent-deep);
+}
+
+.search-icon::after {
+    background: var(--accent-deep);
+}
+
+.search-form input,
+.search-form input::placeholder {
+    color: var(--search-text);
+}
+
+.dropdown-content {
+    background: rgba(13, 35, 45, 0.98);
+    border-color: rgba(124, 232, 234, 0.22);
+    box-shadow: 0 20px 44px rgba(4, 20, 26, 0.28);
+}
+
+.dropdown-content a {
+    border-color: rgba(124, 232, 234, 0.12);
+}
+
+.dropdown-content a:hover {
+    background: rgba(49, 212, 220, 0.16);
+    color: #7ce8ea;
+}
+
+.section-kicker,
+.overview-label,
+.member-info .title,
+.staff-role-label,
+.map-detail-label,
+.footer-contact-list a:hover,
+.footer-links a:hover {
+    color: var(--accent-deep);
+}
+
+.portfolio-hero,
+.header,
+.team-gallery,
+.meet-team,
+.team-member,
+.staff-intro,
+.purpose-hero-copy,
+.direction-card,
+.overview-card,
+.core-card,
+.location-hero-copy,
+.location-overview,
+.map-info,
+.map-card,
+.search-hero,
+.search-summary-bar,
+.search-empty,
+.search-result-card,
+.dev-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(232, 246, 247, 0.94));
+    border-color: var(--surface-border);
+    box-shadow: var(--shadow-soft);
+}
+
+.portfolio-hero-copy h1,
+.project-shell h1,
+.Project-record,
+.other-project-title,
+.header h1,
+.hero-copy h1,
+.gallery-copy h2,
+.meet-copy h2,
+.team-member-heading h2,
+.staff-intro h2,
+.member-info h3,
+.card-content h3,
+.purpose-hero-copy h1,
+.direction-card h2,
+.overview-card h2,
+.core-card h3,
+.location-hero-copy h1,
+.map-info-copy h2,
+.map-card-header h2,
+.search-hero h1,
+.developers-heading h2,
+.hero-panel h1,
+.dev-card h2 {
+    color: var(--ink);
+}
+
+.portfolio-hero-lead,
+.project-shell p,
+.overview-card p,
+.header p,
+.hero-lead,
+.gallery-copy p,
+.meet-copy p,
+.staff-intro p,
+.member-info p,
+.role-desc,
+.purpose-lead,
+.purpose-stat span,
+.direction-step p,
+.core-card p,
+.location-hero-copy p,
+.map-info-lead,
+.map-detail-card,
+.search-lead,
+.search-summary-bar,
+.search-result-card p,
+.developers-heading p,
+.dev-card p {
+    color: var(--ink-soft);
+}
+
+.portfolio-button-primary,
+.purpose-button-primary,
+.hero-button-primary,
+.map-open-link,
+.search-result-link {
+    background: linear-gradient(135deg, #2fcbd3 0%, #138c9b 100%);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    box-shadow: 0 14px 26px rgba(19, 140, 155, 0.22);
+}
+
+.portfolio-button-primary:hover,
+.purpose-button-primary:hover,
+.hero-button-primary:hover,
+.map-open-link:hover,
+.search-result-link:hover {
+    background: linear-gradient(135deg, #45dfe4 0%, #159cab 100%);
+    box-shadow: 0 18px 34px rgba(19, 140, 155, 0.3);
+}
+
+.portfolio-button-secondary,
+.purpose-button-secondary,
+.hero-button-secondary {
+    background: rgba(247, 253, 253, 0.8);
+    border-color: rgba(23, 76, 87, 0.16);
+    color: var(--ink);
+}
+
+.portfolio-stat,
+.hero-stat,
+.purpose-stat,
+.direction-step,
+.leader-point,
+.principle-card,
+.value-pill-row span,
+.map-detail-card {
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(23, 76, 87, 0.13);
+}
+
+.portfolio-hero-panel,
+.purpose-hero-panel,
+.mission-card,
+.location-hero-panel,
+.hero-panel {
+    background:
+        linear-gradient(150deg, #153943 0%, #102a33 58%, #0b1e29 100%);
+    border-color: rgba(178, 236, 239, 0.18);
+    color: #f8ffff;
+}
+
+.portfolio-hero-panel *,
+.purpose-hero-panel *,
+.mission-card *,
+.location-hero-panel *,
+.hero-panel * {
+    color: inherit;
+}
+
+.hero-panel .hero-copy h1 {
+    color: #f8ffff;
+}
+
+.hero-panel .hero-lead {
+    color: #d7eef1;
+}
+
+.developers-content-space .developers-heading {
+    background: transparent;
+    box-shadow: none;
+}
+
+.hero-panel .hero-copy,
+.hero-panel .hero-stats,
+.hero-panel .hero-stat {
+    min-width: 0;
+}
+
+.hero-panel .hero-copy h1,
+.hero-panel .hero-lead,
+.hero-panel .hero-stat span {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    .hero-panel .hero-copy h1 {
+        font-size: clamp(2rem, 8.5vw, 2.6rem);
+        line-height: 1.04;
+    }
+}
+
+.portfolio-panel-header .section-kicker,
+.purpose-hero-panel .section-kicker,
+.mission-card .section-kicker,
+.location-hero-panel .section-kicker,
+.hero-panel .section-kicker {
+    color: #aaf6f6;
+}
+
+.portfolio-panel-badge,
+.hero-panel-badge,
+.core-icon,
+.direction-index,
+.project-icon,
+.footer-contact-icon {
+    background: rgba(49, 212, 220, 0.14);
+    border-color: rgba(124, 232, 234, 0.22);
+    color: var(--accent-deep);
+}
+
+.service-card:hover,
+.training-card:hover,
+.project-card:hover,
+.Project-other.card:hover,
+.staff-card:hover,
+.core-card:hover,
+.dev-card:hover,
+.search-result-card:hover {
+    border-color: rgba(49, 212, 220, 0.36);
+    box-shadow: 0 18px 38px rgba(19, 140, 155, 0.14);
+}
+
+.project-card,
+.Project-other.card,
+.staff-card {
+    background: linear-gradient(180deg, #fff 0%, #e8f4f5 100%);
+    border-color: var(--surface-border);
+}
+
+.Project-other.card .other-project-header .section-kicker {
+    color: var(--accent-deep);
+}
+
+.Project-other.card .other-project-title {
+    color: var(--ink);
+}
+
+.Project-other.card .other-project-intro,
+.Project-other.card .project-bullets {
+    color: var(--ink-soft);
+}
+
+.Project-other.card .other-project-badge {
+    background: rgba(49, 212, 220, 0.08);
+    border-color: rgba(49, 212, 220, 0.2);
+    color: var(--accent-deep);
+}
+
+.project-card::after,
+.staff-card::before,
+.gallery-badge {
+    background: rgba(16, 42, 51, 0.92);
+    color: #f8ffff;
+}
+
+.flip-card-front::before {
+    background: rgba(49, 212, 220, 0.14);
+    color: var(--accent-deep);
+}
+
+.project-bullets li::before,
+.mission-list li::before {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px rgba(49, 212, 220, 0.16);
+}
+
+.card-image-container {
+    background:
+        radial-gradient(circle at top, rgba(255, 255, 255, 0.18), transparent 30%),
+        linear-gradient(180deg, #31d4dc, #0f7f8c);
+}
+
+.footer-legal-card,
+.footer-legal-card::after {
+    background: #f8ffff;
+    border-color: rgba(38, 83, 87, 0.18);
+}
+
+.footer-legal-card strong {
+    color: var(--ink);
+}
+
+.footer-legal-card p {
+    color: var(--ink-soft);
+}
+
+.loader::after {
+    background:
+        radial-gradient(farthest-side, #7ce8ea 94%, #0000) top / 8px 8px no-repeat,
+        conic-gradient(#0000 30%, #31d4dc);
+}
+
+.search-page #particles-js {
+    opacity: 0.34;
+}
+
+.search-page main {
+    background: transparent;
+}
+
+.search-page .search-hero,
+.search-page .search-results-section {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+.search-page .search-hero {
+    padding-top: clamp(26px, 4vw, 34px);
+}
+
+.search-page .search-hero .search-shell {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid var(--surface-border);
+    border-radius: 28px;
+    box-shadow: 0 16px 36px rgba(19, 54, 62, 0.08);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.search-page .search-summary-bar,
+.search-page .search-empty,
+.search-page .search-result-card {
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--surface-border);
+    box-shadow: 0 12px 28px rgba(19, 54, 62, 0.06);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.search-page .search-results-section {
+    padding-top: 24px;
+}
+
+.search-page .search-summary-bar {
+    margin-top: 0;
+}
+
+.search-page .section-kicker,
+.search-page .search-suggestion a {
+    color: var(--accent-deep);
+}
