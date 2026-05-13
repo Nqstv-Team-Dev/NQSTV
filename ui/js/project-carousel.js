@@ -162,8 +162,12 @@
             event.stopImmediatePropagation();
         }, true);
 
+        var lastWidth = window.innerWidth;
         window.addEventListener("resize", function () {
-            setActiveCard(activeIndex, "auto");
+            if (window.innerWidth !== lastWidth) {
+                lastWidth = window.innerWidth;
+                setActiveCard(activeIndex, "auto");
+            }
         });
 
         updateCounter();
