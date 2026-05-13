@@ -84,6 +84,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     flipCards.forEach(card => {
+        const front = card.querySelector('.flip-card-front');
+        const backImage = card.querySelector('.flip-card-back > img');
+        const clientLine = Array.from(card.querySelectorAll('.flip-card-back .flip-back-content p'))
+            .find(line => line.textContent.trim().toLowerCase().startsWith('client:'));
+
+        if (backImage) {
+            const imageSrc = backImage.getAttribute('src');
+            const imageUrl = new URL(imageSrc, window.location.href).href;
+            card.style.setProperty('--project-image', `url("${imageUrl}")`);
+
+            const existingImage = front ? front.querySelector('.project-card-media img') : null;
+
+            if (existingImage) {
+                existingImage.src = imageSrc;
+                existingImage.alt = backImage.alt || front.querySelector('h4')?.textContent.trim() || 'Project image';
+            } else if (front) {
+                const media = document.createElement('figure');
+                const image = document.createElement('img');
+
+                media.className = 'project-card-media';
+                image.src = imageSrc;
+                image.alt = backImage.alt || front.querySelector('h4')?.textContent.trim() || 'Project image';
+                image.loading = 'lazy';
+                image.decoding = 'async';
+
+                media.appendChild(image);
+                front.prepend(media);
+            }
+        }
+
+        if (front && clientLine && !front.querySelector('.project-card-meta')) {
+            const meta = document.createElement('p');
+            meta.className = 'project-card-meta';
+            meta.textContent = clientLine.textContent.replace(/^Client:\s*/i, '').trim();
+            front.appendChild(meta);
+        }
+    });
+
+    flipCards.forEach(card => {
         card.addEventListener('click', function(e) {
             // Prevent closing if already active
             if (this.classList.contains('active')) {

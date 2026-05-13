@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!-- Security Headers -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">    <link rel = "Stylesheet" href="css/project.css">    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">    <link rel = "Stylesheet" href="css/project.css?v=2">    
     <link rel = "Stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/theme.css">
     <title>Project Portfolio</title>
@@ -94,7 +94,7 @@
                             </div>
                             <span class="portfolio-panel-badge">Live portfolio</span>
                         </div>
-                        <p class="portfolio-panel-text">A quick visual sweep of featured developments and supporting works across the portfolio.</p>
+                        <p class="portfolio-panel-text">A quick visual sweep of featured<br>developments and supporting works<br>across the portfolio.</p>
 
                         <div class="minor-carousel-shell" aria-label="Minor project highlights">
                             <div class="minor-carousel" data-speed="22">
@@ -261,7 +261,20 @@
                     </div>
                 </div>
 
-            <div class ="project-grid">
+            <div class="project-carousel" aria-label="Major projects carousel">
+                <div class="project-carousel-toolbar">
+                    <p class="project-carousel-count" aria-live="polite">Browse major projects</p>
+                    <div class="project-carousel-actions">
+                        <button class="project-carousel-button project-carousel-prev" type="button" aria-label="Previous project">
+                            <span aria-hidden="true">&lsaquo;</span>
+                        </button>
+                        <button class="project-carousel-button project-carousel-next" type="button" aria-label="Next project">
+                            <span aria-hidden="true">&rsaquo;</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="project-carousel-window">
+            <div class ="project-grid project-carousel-track">
                  <article class="project-card flip-card">
                     <div class="flip-card-front">
                         <h4>Gateway Mall 2, Cubao</h4>
@@ -603,6 +616,8 @@
 
                 </article>
             </div>
+                </div>
+            </div>
 
             <div class="major-project-section" id="other-projects">
                     <div class ="project-icon">
@@ -798,6 +813,7 @@
     <script src ="js/dropdown.js"></script>
     <script src="js/search.js"></script>
     <script src="js/card.js"></script>
+    <script src="js/project-carousel.js"></script>
     <script src="js/minor-carousel.js"></script>
 
 </body>
