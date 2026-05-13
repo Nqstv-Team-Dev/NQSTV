@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Security Headers -->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src 'self' https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">
         <link rel="stylesheet" href="css/team.css">
         <link rel="stylesheet" href="css/loader.css">
         <link rel="stylesheet" href="css/theme.css">
@@ -77,6 +77,9 @@
                             </div>
 
                             <div class="hero-highlights" aria-label="Team highlights">
+                                <div class="mascot-video-stage" aria-hidden="true">
+                                    <video class="mascot-video" src="../video/mascotqs.mp4" autoplay loop muted playsinline preload="auto"></video>
+                                </div>
                                 <article class="hero-stat">
                                     <strong>12</strong>
                                     <span>featured professionals across leadership, technical, and admin roles</span>

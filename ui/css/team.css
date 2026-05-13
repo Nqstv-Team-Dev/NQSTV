@@ -381,8 +381,13 @@ main {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.9fr);
     gap: clamp(24px, 4vw, 40px);
-    align-items: end;
+    align-items: center;
     margin-top: 16px;
+}
+
+.hero-copy,
+.hero-highlights {
+    min-width: 0;
 }
 
 .hero-copy h1,
@@ -400,6 +405,7 @@ main {
     line-height: 0.98;
     letter-spacing: -0.03em;
     max-width: 10.5ch;
+    overflow-wrap: anywhere;
 }
 
 .hero-lead {
@@ -408,11 +414,35 @@ main {
     color: var(--text-body);
     font-size: clamp(1rem, 1.6vw, 1.12rem);
     line-height: 1.8;
+    overflow-wrap: break-word;
 }
 
 .hero-highlights {
     display: grid;
+    align-content: center;
     gap: 14px;
+}
+
+.mascot-video-stage {
+    width: 100%;
+    aspect-ratio: 1 / 0.92;
+    justify-self: center;
+    display: grid;
+    place-items: center;
+    margin: -12px auto 4px;
+    overflow: hidden;
+    border-radius: 28px;
+    border: 1px solid rgba(178, 236, 239, 0.18);
+    box-shadow: 0 18px 34px rgba(5, 22, 28, 0.18);
+}
+
+.mascot-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    pointer-events: none;
+    filter: drop-shadow(0 16px 24px rgba(38, 28, 20, 0.12));
 }
 
 .hero-stat {
@@ -1037,6 +1067,17 @@ main {
         grid-template-columns: 1fr;
     }
 
+    .hero-highlights {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+    }
+
+    .mascot-video-stage {
+        grid-column: 1 / -1;
+        width: 100%;
+        margin-top: -6px;
+    }
+
     .gallery-container {
         order: -1;
     }
@@ -1210,9 +1251,25 @@ main {
         border-radius: 20px;
     }
 
+    .hero-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .mascot-video-stage {
+        width: 100%;
+        margin: -2px auto 0;
+        border-radius: 22px;
+    }
+
     .hero-copy h1 {
-        font-size: clamp(2.1rem, 10vw, 3rem);
-        max-width: none;
+        font-size: clamp(1.72rem, 7.3vw, 2.05rem);
+        line-height: 1.04;
+        max-width: 11.5ch;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-lead {
+        max-width: 31ch;
     }
 
     .gallery-copy h2,

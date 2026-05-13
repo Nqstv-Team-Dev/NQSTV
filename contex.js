@@ -71,9 +71,19 @@ if (deferredHeroVideo) {
         source.src = deferredHeroVideo.dataset.src;
         source.type = 'video/mp4';
         deferredHeroVideo.append(source);
+        deferredHeroVideo.preload = 'auto';
         deferredHeroVideo.dataset.loaded = 'true';
         deferredHeroVideo.load();
         deferredHeroVideo.play().catch(() => {});
+    };
+
+    const scheduleHeroVideoLoad = () => {
+        if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadHeroVideo, { timeout: 1200 });
+            return;
+        }
+
+        window.setTimeout(loadHeroVideo, 600);
     };
 
     ['pointerenter', 'click', 'focus'].forEach((eventName) => {
@@ -83,6 +93,12 @@ if (deferredHeroVideo) {
     ['scroll', 'pointerdown', 'touchstart', 'keydown'].forEach((eventName) => {
         window.addEventListener(eventName, loadHeroVideo, { once: true, passive: true });
     });
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', scheduleHeroVideoLoad, { once: true });
+    } else {
+        scheduleHeroVideoLoad();
+    }
 }
 
 let currentSlide = 0;
