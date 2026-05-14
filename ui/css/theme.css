@@ -1438,3 +1438,234 @@ textarea:focus-visible {
         height: 44px;
     }
 }
+
+/* Shared tablet and smart display refinements for UI pages */
+.site-nav {
+    gap: clamp(14px, 2vw, 22px);
+    min-width: 0;
+}
+
+.site-nav a {
+    font-size: clamp(0.92rem, 1.3vw, 0.98rem);
+    white-space: nowrap;
+}
+
+.header-actions {
+    min-width: 0;
+    overflow: visible;
+}
+
+@media (min-width: 861px) and (max-width: 1100px) and (orientation: portrait) {
+    .site-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 12px 16px;
+        padding: 12px 16px;
+    }
+
+    .brand {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .header-actions {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .site-nav {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px 16px;
+        padding-top: 0;
+    }
+
+    .search-form {
+        min-width: min(220px, 34vw);
+        max-width: 260px;
+    }
+
+    .team-page .header {
+        padding: clamp(28px, 5vw, 44px);
+    }
+
+    .team-page .hero-grid {
+        gap: 18px;
+    }
+
+    .team-page .hero-copy h1,
+    .purpose-hero-copy h1,
+    .portfolio-hero-copy h1,
+    .developers-section .hero-copy h1,
+    .location-hero-copy h1,
+    .search-hero h1 {
+        max-width: 18ch;
+        font-size: clamp(2.35rem, 5vw, 3.2rem);
+        line-height: 1;
+    }
+
+    .team-page .hero-lead,
+    .purpose-lead,
+    .portfolio-hero-lead,
+    .developers-section .hero-lead,
+    .location-hero-copy .hero-lead,
+    .search-hero p {
+        max-width: 64ch;
+        line-height: 1.65;
+    }
+
+    .team-page .mascot-video-stage {
+        max-height: 430px;
+        aspect-ratio: 16 / 9;
+        margin-top: 8px;
+    }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) and (max-height: 720px) {
+    .site-header {
+        gap: 8px 16px;
+        padding: 8px 16px;
+    }
+
+    .brand img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .brand-title {
+        font-size: 1.25rem;
+    }
+
+    .brand-tagline {
+        max-width: 210px;
+        font-size: 0.52rem;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        gap: 8px 16px;
+        padding-top: 0;
+    }
+
+    .site-nav a {
+        font-size: 0.88rem;
+    }
+
+    .search-form {
+        min-width: 190px;
+        max-width: 230px;
+        padding: 5px 12px;
+    }
+
+    .menu-button {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    .team-page .container,
+    .portfolio-section,
+    .developers-section,
+    .map-experience,
+    .search-hero {
+        padding-top: 16px;
+        padding-bottom: 34px;
+    }
+
+    .team-page .header,
+    .portfolio-hero,
+    .developers-section .hero-panel,
+    .developers-content-space,
+    .purpose-hero-copy,
+    .purpose-hero-panel,
+    .location-hero-copy,
+    .location-hero-panel,
+    .map-card,
+    .map-info,
+    .search-hero .search-shell {
+        border-radius: 22px;
+        padding: 20px;
+    }
+
+    .team-page .hero-grid,
+    .purpose-hero-shell,
+    .portfolio-hero,
+    .developers-section .hero-panel,
+    .location-hero {
+        grid-template-columns: minmax(0, 1.1fr) minmax(250px, 0.86fr);
+        gap: 16px;
+    }
+
+    .team-page .hero-copy h1,
+    .purpose-hero-copy h1,
+    .portfolio-hero-copy h1,
+    .developers-section .hero-copy h1,
+    .location-hero-copy h1,
+    .search-hero h1 {
+        max-width: 17ch;
+        font-size: clamp(2rem, 4.2vw, 2.8rem);
+        line-height: 1;
+    }
+
+    .team-page .hero-lead,
+    .purpose-lead,
+    .portfolio-hero-lead,
+    .developers-section .hero-lead,
+    .location-hero-copy .hero-lead,
+    .map-info-lead,
+    .map-hint,
+    .search-hero p {
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
+    .purpose-button,
+    .portfolio-button,
+    .hero-button {
+        min-height: 36px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+    }
+
+    .team-page .hero-highlights,
+    .purpose-stat-grid,
+    .portfolio-hero-stats,
+    .cards-grid {
+        gap: 8px;
+    }
+
+    .team-page .mascot-video-stage {
+        max-height: 150px;
+        aspect-ratio: 16 / 9;
+        margin: 0;
+    }
+
+    .team-page .hero-stat,
+    .purpose-stat,
+    .portfolio-stat {
+        padding: 10px 12px;
+        border-radius: 14px;
+    }
+
+    .team-page .hero-stat strong,
+    .purpose-stat strong,
+    .portfolio-stat strong {
+        font-size: 0.9rem;
+    }
+
+    .team-page .hero-stat span,
+    .purpose-stat span,
+    .purpose-hero-panel p,
+    .portfolio-stat span,
+    .portfolio-panel p {
+        font-size: 0.76rem;
+        line-height: 1.35;
+    }
+
+    .map-container {
+        min-height: 230px;
+    }
+}

@@ -932,15 +932,17 @@ main {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 22px;
+    gap: clamp(14px, 2vw, 22px);
     flex-wrap: wrap;
+    min-width: 0;
 }
 
 .site-nav a {
     color: var(--text-light);
-    font-size: 0.98rem;
+    font-size: clamp(0.92rem, 1.3vw, 0.98rem);
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
     position: relative;
     transition: color 0.2s ease;
 }
@@ -3670,7 +3672,7 @@ video {
     }
 
     .site-nav {
-        justify-content: space-between;
+        justify-content: flex-start;
         gap: 10px 14px;
     }
 
@@ -4332,9 +4334,15 @@ body {
 
 #banner-inquiry .banner-video {
     aspect-ratio: 16 / 9;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 #banner-inquiry .banner-video video {
+    display: block;
+    width: 100%;
     min-height: 0;
     height: clamp(170px, 31svh, 260px);
     border-radius: 20px;
@@ -4342,6 +4350,7 @@ body {
 
 #banner-inquiry .hero-panel-card {
     gap: 10px;
+    min-width: 0;
     padding: 16px;
     border-radius: 20px;
 }
@@ -4374,6 +4383,217 @@ body {
 
     #banner-inquiry .hero-stats {
         grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) and (orientation: portrait) {
+    :root {
+        --header-offset: 132px;
+    }
+
+    .site-header {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 12px 16px;
+        padding: 12px 16px;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        gap: 10px 16px;
+    }
+
+    .search-form {
+        min-width: min(220px, 34vw);
+        max-width: 260px;
+    }
+
+    #banner-inquiry.first.section.backgroung-image {
+        min-height: auto;
+        padding-top: calc(var(--header-offset) + 18px) !important;
+        padding-bottom: 36px;
+    }
+
+    #banner-inquiry .banner-content {
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: 16px;
+        max-width: 820px;
+    }
+
+    #banner-inquiry .banner-content .message h1 {
+        max-width: 18ch;
+        font-size: clamp(2.45rem, 6vw, 3.65rem);
+    }
+
+    #banner-inquiry .banner-side-column {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        width: 100%;
+    }
+
+    #banner-inquiry .banner-video video {
+        height: 100%;
+        max-height: none;
+    }
+
+    .intro-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .intro-copy,
+    .welcome-image,
+    .point-card,
+    .featured-panel {
+        grid-column: 1;
+    }
+
+    .welcome-image {
+        grid-row: 2;
+        justify-self: start;
+    }
+
+    .point-card {
+        grid-row: 3;
+    }
+
+    .featured-panel {
+        grid-row: 4;
+        max-height: none;
+    }
+}
+
+@media (min-width: 861px) and (max-width: 1100px) and (max-height: 720px) {
+    :root {
+        --header-offset: 112px;
+    }
+
+    .site-header {
+        gap: 8px 16px;
+        padding: 8px 16px;
+    }
+
+    .brand img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .brand-title {
+        font-size: 1.25rem;
+    }
+
+    .brand-tagline {
+        max-width: 210px;
+        font-size: 0.52rem;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        gap: 8px 16px;
+        padding-top: 0;
+    }
+
+    .site-nav a {
+        font-size: 0.88rem;
+    }
+
+    .search-form {
+        min-width: 190px;
+        max-width: 230px;
+        padding: 5px 12px;
+    }
+
+    .menu-button {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    #banner-inquiry.first.section.backgroung-image {
+        min-height: auto;
+        padding-top: calc(var(--header-offset) + 12px) !important;
+        padding-bottom: 24px;
+    }
+
+    #banner-inquiry .banner-content {
+        grid-template-columns: minmax(0, 1fr) minmax(250px, 0.7fr);
+        gap: 14px;
+        max-width: 980px;
+    }
+
+    #banner-inquiry .banner-content .message {
+        gap: 8px;
+        padding: 14px;
+    }
+
+    #banner-inquiry .banner-content .message h1 {
+        max-width: 18ch;
+        font-size: clamp(2rem, 4vw, 2.55rem);
+        line-height: 1;
+    }
+
+    #banner-inquiry .message p {
+        font-size: 0.82rem;
+        line-height: 1.36;
+    }
+
+    #banner-inquiry .button-primary,
+    #banner-inquiry .button-secondary {
+        min-height: 36px;
+        padding: 8px 14px;
+        font-size: 0.84rem;
+    }
+
+    #banner-inquiry .hero-stats {
+        gap: 6px;
+    }
+
+    #banner-inquiry .hero-stat {
+        padding: 8px;
+    }
+
+    #banner-inquiry .hero-stat strong {
+        font-size: 0.76rem;
+    }
+
+    #banner-inquiry .hero-stat span {
+        font-size: 0.64rem;
+        line-height: 1.2;
+    }
+
+    #banner-inquiry .banner-side-column {
+        gap: 8px;
+    }
+
+    #banner-inquiry .banner-video video {
+        height: 142px;
+        border-radius: 16px;
+    }
+
+    #banner-inquiry .hero-panel-card {
+        gap: 7px;
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    #banner-inquiry .hero-panel-header h2 {
+        font-size: 1.05rem;
+    }
+
+    #banner-inquiry .hero-panel-text {
+        font-size: 0.7rem;
+        line-height: 1.25;
+    }
+
+    #banner-inquiry .hero-panel-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 6px;
+    }
+
+    #banner-inquiry .hero-panel-links a {
+        min-height: 30px;
+        padding-inline: 8px;
+        font-size: 0.74rem;
     }
 }
 
