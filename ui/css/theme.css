@@ -1275,10 +1275,10 @@ textarea:focus-visible {
     counter-reset: team-card;
     display: flex;
     grid-template-columns: none;
-    gap: clamp(16px, 2vw, 22px);
+    gap: clamp(12px, 1.6vw, 18px);
     overflow-x: auto;
     overflow-y: visible;
-    padding: 8px 8px 26px;
+    padding: 6px 8px 22px;
     margin: 0 -8px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
@@ -1286,6 +1286,9 @@ textarea:focus-visible {
     scrollbar-color: rgba(170, 246, 246, 0.75) rgba(255, 255, 255, 0.12);
     cursor: grab;
     touch-action: pan-x;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+    user-select: none;
 }
 
 .team-page .staff-carousel .staff-grid:active,
@@ -1311,33 +1314,73 @@ textarea:focus-visible {
 
 .team-page .staff-carousel .staff-card,
 .team-page .staff-carousel .staff-card:nth-child(even) {
-    flex: 0 0 clamp(285px, 31vw, 360px);
+    flex: 0 0 clamp(220px, 24vw, 270px);
     scroll-snap-align: start;
     overflow: hidden;
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(231, 251, 251, 0.88)) !important;
     border-color: rgba(211, 251, 252, 0.42) !important;
     box-shadow:
-        0 22px 46px rgba(5, 22, 28, 0.26),
-        0 8px 22px rgba(49, 212, 220, 0.1),
+        0 16px 34px rgba(5, 22, 28, 0.22),
+        0 6px 16px rgba(49, 212, 220, 0.09),
         inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
-    -webkit-box-reflect: below 10px linear-gradient(transparent 67%, rgba(255, 255, 255, 0.14));
+    -webkit-box-reflect: below 8px linear-gradient(transparent 70%, rgba(255, 255, 255, 0.12));
+}
+
+.team-page .staff-carousel .staff-card img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 .team-page .staff-carousel .staff-card:hover {
     box-shadow:
-        0 30px 60px rgba(5, 22, 28, 0.32),
-        0 0 38px rgba(49, 212, 220, 0.2),
+        0 22px 44px rgba(5, 22, 28, 0.28),
+        0 0 28px rgba(49, 212, 220, 0.18),
         inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
 .team-page .staff-carousel .card-image-container {
+    height: clamp(165px, 18vw, 205px);
+    margin: 12px 12px 0;
+    border-radius: 14px;
     background:
         radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.44), transparent 24%),
         linear-gradient(145deg, #12343e 0%, #0f7f8c 54%, #31d4dc 100%) !important;
     box-shadow:
         inset 0 0 0 1px rgba(255, 255, 255, 0.36),
         0 16px 30px rgba(5, 22, 28, 0.12);
+}
+
+.team-page .staff-carousel .staff-card::before {
+    top: 14px;
+    left: 14px;
+    min-width: 34px;
+    height: 26px;
+    padding: 0 8px;
+    font-size: 0.68rem;
+}
+
+.team-page .staff-carousel .card-content,
+.team-page .staff-carousel .staff-card:nth-child(even) .card-content {
+    padding: 14px 14px 16px;
+    gap: 7px;
+}
+
+.team-page .staff-carousel .staff-card .card-content h3 {
+    font-size: clamp(0.98rem, 1.15vw, 1.14rem);
+    line-height: 1.1;
+}
+
+.team-page .staff-carousel .staff-card .staff-role-label {
+    padding: 5px 8px;
+    font-size: 0.56rem;
+    line-height: 1.25;
+}
+
+.team-page .staff-carousel .staff-card .role-desc {
+    font-size: 0.77rem;
+    line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -1351,18 +1394,18 @@ textarea:focus-visible {
         grid-template-areas:
             "photo"
             "content";
-        flex-basis: min(310px, 82vw);
+        flex-basis: min(250px, 76vw);
         overflow: hidden;
         -webkit-box-reflect: initial;
     }
 
     .team-page .staff-carousel .staff-card::before {
-        top: 26px;
-        left: 26px;
+        top: 24px;
+        left: 24px;
     }
 
     .team-page .staff-carousel .card-image-container {
-        height: 250px;
+        height: 210px;
         min-height: 0;
         margin: 14px 14px 0;
         border-radius: 16px;
@@ -1370,7 +1413,7 @@ textarea:focus-visible {
 
     .team-page .staff-carousel .card-content,
     .team-page .staff-carousel .staff-card:nth-child(even) .card-content {
-        padding: 18px 18px 20px;
+        padding: 14px 14px 16px;
     }
 }
 

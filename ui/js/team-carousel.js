@@ -14,6 +14,7 @@
         let startX = 0;
         let startScrollLeft = 0;
         let activePointerId = null;
+        let dragged = false;
 
         const getStep = () => {
             const card = track.querySelector(".staff-card");
@@ -58,6 +59,7 @@
             }
 
             isDragging = true;
+            dragged = false;
             activePointerId = event.pointerId;
             startX = event.clientX;
             startScrollLeft = track.scrollLeft;
@@ -71,6 +73,7 @@
             }
 
             const dragDistance = event.clientX - startX;
+            dragged = Math.abs(dragDistance) > 4;
             track.scrollLeft = startScrollLeft - dragDistance;
         });
 
@@ -95,6 +98,25 @@
             activePointerId = null;
             track.classList.remove("is-dragging");
         });
+
+        track.addEventListener("click", (event) => {
+            if (!dragged) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
+            dragged = false;
+        }, true);
+
+        track.addEventListener("wheel", (event) => {
+            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY) && !event.shiftKey) {
+                return;
+            }
+
+            event.preventDefault();
+            track.scrollLeft += event.deltaX || event.deltaY;
+        }, { passive: false });
 
         track.addEventListener("scroll", updateButtons, { passive: true });
         window.addEventListener("resize", updateButtons);
