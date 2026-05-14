@@ -12,7 +12,7 @@
         <title>Our Team</title>
         <link rel="icon" type="image/png" href="../images/logonsqtv-96.png">
     </head>
-    <body>
+    <body class="team-page">
         <div class="loader">
                     
         </div>
@@ -179,8 +179,25 @@
                         <p>Explore the wider team that helps turn project requirements into structured, accurate, and actionable outputs.</p>
                     </div>
 
-                    <div class="staff-grid">
-                        <div class="staff-card">
+                    <div class="staff-carousel" data-team-carousel>
+                        <div class="staff-carousel-header">
+                            <div class="staff-carousel-copy">
+                                <p class="section-kicker">Team Inquisitive</p>
+                                <h2>Inquisitive Team Members</h2>
+                            </div>
+
+                            <div class="staff-carousel-actions" aria-label="Team carousel controls">
+                                <button class="staff-carousel-button" type="button" data-carousel-prev aria-label="Previous team member">
+                                    <span aria-hidden="true">&#8592;</span>
+                                </button>
+                                <button class="staff-carousel-button" type="button" data-carousel-next aria-label="Next team member">
+                                    <span aria-hidden="true">&#8594;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="staff-grid" data-carousel-track tabindex="0" aria-label="Scrollable team members carousel">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/Jhun Rhold Tan.png" alt="Engr. Jhun Rhold Tan">
                             </div>
@@ -191,7 +208,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/lynne.png" alt="Arch. Sherlynne De Leon">
                             </div>
@@ -202,7 +219,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/moniquee.png" alt="Engr. Monique Arocena">
                             </div>
@@ -213,9 +230,9 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
-                                <img src="img/hr/PJ MARZO.jpg" alt="Arch. Paul Justin Marzo">
+                                <img src="img/hr/PJ MARZO.png" alt="Arch. Paul Justin Marzo">
                             </div>
                             <div class="card-content">
                                 <h3>Arch. Paul Justin Marzo</h3>
@@ -224,7 +241,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/Dominique Collantes.jpeg" alt="Engr. Dominique Collantes">
                             </div>
@@ -235,7 +252,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/LJ%20Iba%C3%B1ez.jpeg" alt="Engr. Lourd Jericho Ibanez">
                             </div>
@@ -246,7 +263,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/Chester Buenviaje.jpg" alt="Engr. Carl Chester Buenviaje">
                             </div>
@@ -257,7 +274,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/Jas Cosio.jpg" alt="Engr. Jasmine Cosio">
                             </div>
@@ -268,7 +285,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/Josh David.jpg" alt="Engr. Joshua David">
                             </div>
@@ -279,7 +296,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/gem.png" alt="Genesis Mae Pisuena">
                             </div>
@@ -290,7 +307,7 @@
                             </div>
                         </div>
 
-                        <div class="staff-card">
+                            <div class="staff-card">
                             <div class="card-image-container">
                                 <img src="img/hr/maris.png" alt="Marissa Villanueva">
                             </div>
@@ -298,6 +315,7 @@
                                 <h3>Marissa Villanueva</h3>
                                 <p class="staff-role-label">Office Canvasser</p>
                                 <p class="role-desc">Responsible for canvassing and sourcing materials for company projects, coordinating with suppliers, comparing quotations, and securing practical options through both online and walk-in sourcing.</p>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -421,6 +439,7 @@
         <script src="js/loader.js"></script>
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script src="js/particle.js"></script>
+        <script src="js/team-carousel.js"></script>
         <script src="js/dropdown.js"></script>
         <script src="js/search.js"></script>
         

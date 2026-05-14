@@ -913,3 +913,485 @@ textarea:focus-visible {
     border-color: rgba(178, 236, 239, 0.18) !important;
     box-shadow: none !important;
 }
+
+/* Team page member-card refresh. Scoped here because this theme file loads last. */
+.team-page .staff-intro {
+    overflow: hidden;
+}
+
+.team-page .staff-intro::before {
+    content: "";
+    position: absolute;
+    inset: auto clamp(18px, 4vw, 42px) -1px auto;
+    width: min(320px, 48vw);
+    height: 6px;
+    border-radius: 999px 999px 0 0;
+    background: linear-gradient(90deg, #31d4dc, #8fe3c7, #f4b75e) !important;
+    box-shadow: 0 -10px 28px rgba(49, 212, 220, 0.16) !important;
+}
+
+.team-page .staff-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: clamp(18px, 2vw, 24px);
+}
+
+.team-page .staff-card,
+.team-page .staff-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "photo"
+        "content";
+    align-content: start;
+    overflow: visible;
+    min-height: 100%;
+    border-radius: 22px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 248, 249, 0.86)) !important;
+    border-color: rgba(23, 76, 87, 0.16) !important;
+    box-shadow: 0 18px 38px rgba(19, 54, 62, 0.11) !important;
+    transform: translateZ(0);
+    isolation: isolate;
+}
+
+.team-page .staff-card::before {
+    top: 18px;
+    left: 18px;
+    width: auto;
+    min-width: 42px;
+    height: 32px;
+    padding: 0 11px;
+    border-radius: 999px;
+    background: rgba(16, 42, 51, 0.9) !important;
+    border: 1px solid rgba(178, 236, 239, 0.2);
+    box-shadow: 0 12px 26px rgba(5, 22, 28, 0.18) !important;
+    z-index: 3;
+}
+
+.team-page .staff-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(135deg, rgba(49, 212, 220, 0.18), transparent 35%),
+        linear-gradient(315deg, rgba(244, 183, 94, 0.16), transparent 36%) !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+    z-index: 0;
+}
+
+.team-page .staff-card .card-image-container,
+.team-page .staff-card .card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.team-page .staff-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(49, 212, 220, 0.34) !important;
+    box-shadow: 0 26px 54px rgba(19, 54, 62, 0.16) !important;
+}
+
+.team-page .staff-card:hover::after {
+    opacity: 1;
+}
+
+.team-page .staff-card .card-image-container {
+    min-height: 0;
+    height: clamp(250px, 27vw, 315px);
+    margin: 16px 16px 0;
+    overflow: hidden;
+    border-radius: 18px;
+    background:
+        radial-gradient(circle at 24% 18%, rgba(255, 255, 255, 0.38), transparent 24%),
+        linear-gradient(145deg, #153943 0%, #138c9b 54%, #31d4dc 100%) !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.team-page .staff-card .card-image-container::before {
+    inset: auto 0 0;
+    height: 46%;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(180deg, transparent, rgba(8, 34, 43, 0.28)) !important;
+    z-index: 2;
+}
+
+.team-page .staff-card .card-image-container img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.team-page .staff-card .card-content,
+.team-page .staff-card:nth-child(even) .card-content {
+    min-height: auto;
+    padding: 18px 20px 22px;
+    align-content: start;
+    gap: 9px;
+}
+
+.team-page .staff-card .card-content h3 {
+    font-size: clamp(1.16rem, 1.45vw, 1.42rem);
+    line-height: 1.13;
+    letter-spacing: 0;
+}
+
+.team-page .staff-card .staff-role-label {
+    width: fit-content;
+    max-width: 100%;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(49, 212, 220, 0.11);
+    border: 1px solid rgba(49, 212, 220, 0.2);
+    font-size: 0.68rem;
+    line-height: 1.3;
+    letter-spacing: 0.1em;
+}
+
+.team-page .staff-card .role-desc {
+    margin-top: 2px;
+    font-size: 0.91rem;
+    line-height: 1.62;
+}
+
+.team-page .team-member {
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+.team-page .team-member::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    bottom: -110px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(49, 212, 220, 0.2), transparent 68%) !important;
+    pointer-events: none;
+}
+
+.team-page .member-header {
+    align-items: stretch;
+}
+
+.team-page .member-photo {
+    min-height: 100%;
+}
+
+.team-page .member-photo img {
+    height: 100%;
+    min-height: 430px;
+    object-position: center top;
+}
+
+.team-page .member-info {
+    align-content: center;
+    padding: clamp(10px, 2vw, 18px) 0;
+}
+
+@media (max-width: 1080px) {
+    .team-page .staff-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .team-page .staff-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-page .staff-card,
+    .team-page .staff-card:nth-child(even) {
+        grid-template-columns: clamp(112px, 30vw, 150px) minmax(0, 1fr);
+        grid-template-areas: "photo content";
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    .team-page .staff-card .card-image-container {
+        height: auto;
+        min-height: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .team-page .staff-card .card-content,
+    .team-page .staff-card:nth-child(even) .card-content {
+        padding: 46px 18px 18px;
+    }
+
+    .team-page .staff-card::before {
+        top: 14px;
+        left: calc(clamp(112px, 30vw, 150px) + 18px);
+    }
+
+    .team-page .member-photo img {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .team-page .staff-card,
+    .team-page .staff-card:nth-child(even) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "photo"
+            "content";
+        overflow: visible;
+    }
+
+    .team-page .staff-card .card-image-container {
+        height: 260px;
+        margin: 14px 14px 0;
+        border-radius: 16px;
+    }
+
+    .team-page .staff-card .card-content,
+    .team-page .staff-card:nth-child(even) .card-content {
+        padding: 18px 18px 20px;
+    }
+
+    .team-page .staff-card::before {
+        top: 26px;
+        left: 26px;
+    }
+}
+
+.team-page .staff-carousel {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(18px, 3vw, 28px);
+    border: 1px solid rgba(178, 236, 239, 0.26);
+    border-radius: 30px;
+    background:
+        radial-gradient(circle at 18% 0%, rgba(143, 227, 199, 0.35), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(49, 212, 220, 0.32), transparent 30%),
+        linear-gradient(145deg, rgba(16, 42, 51, 0.96), rgba(14, 104, 114, 0.9) 48%, rgba(18, 134, 142, 0.88)) !important;
+    box-shadow:
+        0 30px 70px rgba(5, 22, 28, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -28px 60px rgba(4, 28, 35, 0.22) !important;
+}
+
+.team-page .staff-carousel::before,
+.team-page .staff-carousel::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.team-page .staff-carousel::before {
+    inset: 0;
+    background:
+        linear-gradient(115deg, rgba(255, 255, 255, 0.22), transparent 22%, transparent 72%, rgba(255, 255, 255, 0.12)),
+        radial-gradient(circle at 50% 115%, rgba(255, 255, 255, 0.18), transparent 45%) !important;
+    opacity: 0.9;
+}
+
+.team-page .staff-carousel::after {
+    left: 8%;
+    right: 8%;
+    bottom: -42px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(49, 212, 220, 0.34) !important;
+    filter: blur(28px);
+}
+
+.team-page .staff-carousel-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.team-page .staff-carousel-copy {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+}
+
+.team-page .staff-carousel-copy .section-kicker {
+    color: #aaf6f6 !important;
+}
+
+.team-page .staff-carousel-copy h2 {
+    margin: 0;
+    color: #f8ffff;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.55rem, 3vw, 2.45rem);
+    line-height: 1.05;
+}
+
+.team-page .staff-carousel-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.team-page .staff-carousel-button {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(178, 236, 239, 0.36);
+    border-radius: 50%;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.08)) !important;
+    color: #ffffff;
+    font: inherit;
+    font-size: 1.28rem;
+    cursor: pointer;
+    box-shadow:
+        0 14px 30px rgba(5, 22, 28, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.38) !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.team-page .staff-carousel-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(170, 246, 246, 0.74);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.38), rgba(49, 212, 220, 0.18)) !important;
+}
+
+.team-page .staff-carousel-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.42;
+    transform: none;
+}
+
+.team-page .staff-carousel .staff-grid {
+    position: relative;
+    z-index: 2;
+    counter-reset: team-card;
+    display: flex;
+    grid-template-columns: none;
+    gap: clamp(16px, 2vw, 22px);
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 8px 8px 26px;
+    margin: 0 -8px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(170, 246, 246, 0.75) rgba(255, 255, 255, 0.12);
+    cursor: grab;
+    touch-action: pan-x;
+}
+
+.team-page .staff-carousel .staff-grid:active,
+.team-page .staff-carousel .staff-grid.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.team-page .staff-carousel .staff-grid::-webkit-scrollbar {
+    height: 11px;
+}
+
+.team-page .staff-carousel .staff-grid::-webkit-scrollbar-track {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.team-page .staff-carousel .staff-grid::-webkit-scrollbar-thumb {
+    border: 3px solid rgba(10, 54, 64, 0.96);
+    border-radius: 999px;
+    background: linear-gradient(90deg, #31d4dc, #8fe3c7);
+}
+
+.team-page .staff-carousel .staff-card,
+.team-page .staff-carousel .staff-card:nth-child(even) {
+    flex: 0 0 clamp(285px, 31vw, 360px);
+    scroll-snap-align: start;
+    overflow: hidden;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(231, 251, 251, 0.88)) !important;
+    border-color: rgba(211, 251, 252, 0.42) !important;
+    box-shadow:
+        0 22px 46px rgba(5, 22, 28, 0.26),
+        0 8px 22px rgba(49, 212, 220, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
+    -webkit-box-reflect: below 10px linear-gradient(transparent 67%, rgba(255, 255, 255, 0.14));
+}
+
+.team-page .staff-carousel .staff-card:hover {
+    box-shadow:
+        0 30px 60px rgba(5, 22, 28, 0.32),
+        0 0 38px rgba(49, 212, 220, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}
+
+.team-page .staff-carousel .card-image-container {
+    background:
+        radial-gradient(circle at 22% 18%, rgba(255, 255, 255, 0.44), transparent 24%),
+        linear-gradient(145deg, #12343e 0%, #0f7f8c 54%, #31d4dc 100%) !important;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.36),
+        0 16px 30px rgba(5, 22, 28, 0.12);
+}
+
+@media (max-width: 768px) {
+    .team-page .staff-carousel-header {
+        align-items: start;
+    }
+
+    .team-page .staff-carousel .staff-card,
+    .team-page .staff-carousel .staff-card:nth-child(even) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "photo"
+            "content";
+        flex-basis: min(310px, 82vw);
+        overflow: hidden;
+        -webkit-box-reflect: initial;
+    }
+
+    .team-page .staff-carousel .staff-card::before {
+        top: 26px;
+        left: 26px;
+    }
+
+    .team-page .staff-carousel .card-image-container {
+        height: 250px;
+        min-height: 0;
+        margin: 14px 14px 0;
+        border-radius: 16px;
+    }
+
+    .team-page .staff-carousel .card-content,
+    .team-page .staff-carousel .staff-card:nth-child(even) .card-content {
+        padding: 18px 18px 20px;
+    }
+}
+
+@media (max-width: 520px) {
+    .team-page .staff-carousel {
+        padding: 16px 12px;
+        border-radius: 24px;
+    }
+
+    .team-page .staff-carousel-header {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .team-page .staff-carousel-actions {
+        justify-content: flex-end;
+    }
+
+    .team-page .staff-carousel-button {
+        width: 44px;
+        height: 44px;
+    }
+}
