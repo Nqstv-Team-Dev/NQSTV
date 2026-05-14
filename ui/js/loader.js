@@ -1,9 +1,12 @@
 function initPageLoader() {
     const loader = document.querySelector(".loader");
+    const root = document.documentElement;
 
     if (!loader) {
         return;
     }
+
+    root.classList.add("is-loading");
 
     const startTime = (window.performance && performance.now) ? performance.now() : Date.now();
     const minVisibleMs = 700;
@@ -12,6 +15,7 @@ function initPageLoader() {
         loader.classList.add("is-hidden");
         window.setTimeout(() => {
             loader.remove();
+            root.classList.remove("is-loading");
         }, 350);
     };
 

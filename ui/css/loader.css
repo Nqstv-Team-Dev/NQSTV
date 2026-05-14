@@ -1,3 +1,11 @@
+.is-loading,
+.is-loading body,
+html:has(.loader:not(.is-hidden)),
+body:has(.loader:not(.is-hidden)) {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
 .loader {
     position: fixed;
     inset: 0;

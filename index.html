@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-loading">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1015,9 +1015,12 @@ During the course of a project, the quantity surveyors for the contractor and th
     <script>
         (function () {
             var loader = document.querySelector(".loader");
+            var root = document.documentElement;
             if (!loader) {
                 return;
             }
+
+            root.classList.add("is-loading");
 
             var startTime = (window.performance && performance.now) ? performance.now() : Date.now();
             var minVisibleMs = 700;
@@ -1026,6 +1029,7 @@ During the course of a project, the quantity surveyors for the contractor and th
                 loader.classList.add("is-hidden");
                 window.setTimeout(function () {
                     loader.remove();
+                    root.classList.remove("is-loading");
                 }, 350);
             }
 

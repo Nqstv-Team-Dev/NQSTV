@@ -1091,6 +1091,14 @@ main {
     background-color: rgba(59, 232, 241, 0.2);
     color: var(--accent);
 }
+.is-loading,
+.is-loading body,
+html:has(.loader:not(.is-hidden)),
+body:has(.loader:not(.is-hidden)) {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
 /* HTML: <div class="loader"></div> */
 .loader {
     position: fixed;
