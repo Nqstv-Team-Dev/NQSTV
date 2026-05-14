@@ -2567,6 +2567,67 @@ main > section {
     padding-bottom: 10px;
 }
 
+/* Blue-green glowing treatment for the minor project panel. */
+.portfolio-hero-panel {
+    position: relative;
+    isolation: isolate;
+    border-radius: 20px;
+    border-color: rgba(107, 255, 238, 0.26);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.09), transparent 28%),
+        radial-gradient(circle at 16% 0%, rgba(70, 230, 214, 0.28), transparent 34%),
+        radial-gradient(circle at 100% 78%, rgba(36, 171, 178, 0.22), transparent 35%),
+        linear-gradient(150deg, #12363d 0%, #0c2b31 50%, #092025 100%);
+    box-shadow:
+        0 28px 70px rgba(4, 26, 31, 0.36),
+        0 0 46px rgba(40, 217, 207, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18),
+        inset 0 -1px 0 rgba(0, 255, 236, 0.1);
+}
+
+.portfolio-hero-panel::before,
+.portfolio-hero-panel::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.portfolio-hero-panel::before {
+    inset: -2px;
+    border-radius: inherit;
+    background:
+        linear-gradient(120deg, rgba(118, 255, 238, 0.48), transparent 24%, transparent 70%, rgba(45, 173, 191, 0.42));
+    filter: blur(10px);
+    opacity: 0.62;
+}
+
+.portfolio-hero-panel::after {
+    left: 9%;
+    right: 9%;
+    bottom: -24px;
+    height: 34px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(66, 255, 239, 0.32), rgba(11, 114, 125, 0.16) 48%, transparent 72%);
+    filter: blur(9px);
+}
+
+.portfolio-panel-header .section-kicker {
+    color: #49d8df;
+    text-shadow: 0 0 15px rgba(73, 216, 223, 0.45);
+}
+
+.portfolio-panel-header h2 {
+    text-shadow: 0 8px 28px rgba(0, 0, 0, 0.32);
+}
+
+.portfolio-panel-badge {
+    background: rgba(85, 247, 230, 0.1);
+    border-color: rgba(118, 255, 238, 0.32);
+    color: #b9fff6;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 0 18px rgba(58, 225, 216, 0.16);
+}
+
 @media (max-width: 640px) {
     main > section {
         padding-top: 10px;
@@ -2580,6 +2641,7 @@ main > section {
     .major-project-section {
         padding: 14px;
     }
+
 }
 
 /* Photo-forward project cards */

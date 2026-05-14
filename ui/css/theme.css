@@ -618,9 +618,9 @@ mark {
 }
 
 .minor-carousel-shell {
-    background: transparent !important;
-    box-shadow: none !important;
-}
+        background: transparent !important;
+        box-shadow: none !important;
+    }
 
 .Project-other.card .other-project-header .section-kicker {
     color: #7ce8ea !important;
