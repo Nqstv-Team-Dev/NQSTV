@@ -340,8 +340,7 @@ textarea:focus-visible {
 .hero-panel-badge,
 .core-icon,
 .direction-index,
-.project-icon,
-.footer-contact-icon {
+.project-icon {
     background: rgba(49, 212, 220, 0.14);
     border-color: rgba(124, 232, 234, 0.22);
     color: var(--accent-deep);
@@ -532,13 +531,23 @@ body {
 .project-icon,
 .contact-icon,
 .point-card-icon,
-.footer-contact-icon,
 .search-result-category,
 mark {
     background: linear-gradient(135deg, rgba(49, 212, 220, 0.18), rgba(15, 127, 140, 0.12)) !important;
     border-color: rgba(49, 212, 220, 0.24) !important;
     color: var(--accent-deep) !important;
     box-shadow: none !important;
+}
+
+.site-footer .footer-contact-icon {
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    color: #ffffff !important;
+}
+
+.site-footer .footer-contact-icon svg {
+    color: #ffffff !important;
 }
 
 .portfolio-button-primary,

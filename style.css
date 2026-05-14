@@ -4858,8 +4858,8 @@ body {
 }
 
 .dropdown-content {
-    background: rgba(13, 35, 45, 0.98);
-    border-color: rgba(124, 232, 234, 0.22);
+    background: #282a2d;
+    border-color: rgba(124, 232, 234, 0.16);
     box-shadow: 0 20px 44px rgba(4, 20, 26, 0.28);
 }
 
@@ -4995,8 +4995,7 @@ body {
 
 .featured-panel-badge,
 .point-card-icon,
-.contact-icon,
-.footer-contact-icon {
+.contact-icon {
     background: rgba(49, 212, 220, 0.14);
     color: var(--accent-deep);
 }
@@ -5084,7 +5083,9 @@ body {
 }
 
 .site-footer .footer-contact-icon {
-    background: rgba(255, 255, 255, 0.08);
+    background: transparent;
+    border-color: transparent;
+    box-shadow: none;
 }
 
 .contact-info-card,
