@@ -1746,6 +1746,36 @@ main {
     cursor: pointer;
 }
 
+.service-image-card {
+    position: relative;
+    grid-column: span 2;
+    min-height: 190px;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(38, 83, 87, 0.18);
+    border-radius: 16px;
+    background: #e8f4f5;
+    box-shadow: 0 14px 24px rgba(8, 30, 34, 0.08);
+}
+
+.service-image-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(9, 38, 43, 0.12), transparent 36%),
+        linear-gradient(0deg, rgba(9, 38, 43, 0.12), transparent 42%);
+    pointer-events: none;
+}
+
+.service-image-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    object-fit: cover;
+}
+
 .service-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 18px rgba(8, 30, 34, 0.12);
@@ -2267,6 +2297,10 @@ body.contact-modal-open .page-shell {
     .service-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .service-image-card {
+        grid-column: 1 / -1;
+    }
 }
 
 /* Mobile breakpoint - responsive adjustments */
@@ -2393,6 +2427,10 @@ body.contact-modal-open .page-shell {
 
     .service-grid {
         grid-template-columns: 1fr;
+    }
+
+    .service-image-card {
+        grid-column: 1;
     }
 
     .service-card,
