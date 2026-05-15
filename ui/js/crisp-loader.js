@@ -1,6 +1,15 @@
 (function () {
     var crispLoaded = false;
     var crispScriptUrl = "https://client.crisp.chat/l.js";
+    var consentEventName = "nqstv:cookies-updated";
+
+    function hasCookieConsent() {
+        if (window.NQSTVCookies && typeof window.NQSTVCookies.hasAccepted === "function") {
+            return window.NQSTVCookies.hasAccepted();
+        }
+
+        return document.cookie.indexOf("nqstv_cookie_consent=accepted") !== -1;
+    }
 
     function loadCrisp() {
         if (crispLoaded) {
@@ -30,13 +39,26 @@
         window.setTimeout(loadCrisp, 2000);
     }
 
-    ["pointerdown", "keydown", "touchstart"].forEach(function (eventName) {
-        window.addEventListener(eventName, loadCrisp, { once: true, passive: true });
-    });
+    function enableCrispLoading() {
+        ["pointerdown", "keydown", "touchstart"].forEach(function (eventName) {
+            window.addEventListener(eventName, loadCrisp, { once: true, passive: true });
+        });
 
-    if (document.readyState === "complete") {
-        scheduleCrisp();
+        if (document.readyState === "complete") {
+            scheduleCrisp();
+        } else {
+            window.addEventListener("load", scheduleCrisp, { once: true });
+        }
+    }
+
+    if (hasCookieConsent()) {
+        enableCrispLoading();
     } else {
-        window.addEventListener("load", scheduleCrisp, { once: true });
+        window.addEventListener(consentEventName, function (event) {
+            if (event.detail && event.detail.consent === "accepted") {
+                enableCrispLoading();
+                loadCrisp();
+            }
+        });
     }
 })();

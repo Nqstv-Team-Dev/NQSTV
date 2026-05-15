@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://*.crisp.chat https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://*.crisp.chat; img-src 'self' data: https:; font-src 'self' data: https://*.crisp.chat; media-src https://*.crisp.chat; frame-src https://*.crisp.chat; worker-src blob: https://*.crisp.chat; connect-src https://*.crisp.chat wss://*.relay.crisp.chat wss://*.relay.rescue.crisp.chat;">    <link rel = "Stylesheet" href="css/search.css">    
     <link rel = "Stylesheet" href="css/loader.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/cookie-consent.css">
     <title>Search</title>
     <link rel="icon" type="image/png" href="../images/logonsqtv-96.png">
 </head>
@@ -162,8 +163,9 @@
                                 <div class="footer-legal-card" role="note">
                                     <strong>Privacy Policy</strong>
                                     <p>
-                                        We only use the contact details you submit to respond to inquiries,
-                                        coordinate services, and improve the website experience.
+                                    We only use the contact details you submit to respond to inquiries,
+                                    coordinate services, and improve the website experience. We also use
+                                    a small cookie to remember your cookie preference.
                                     </p>
                                 </div>
                             </div>
@@ -185,18 +187,8 @@
 
     </div>
 
-    <script type="text/javascript">
-        window.$crisp = window.$crisp || [];
-        window.CRISP_WEBSITE_ID ="ff804b92-b2a3-4163-9eb2-6fcae561efd8";
-        (function () {
-            const d = document;
-            const s = d.createElement("script");
-            s.src = "https://client.crisp.chat/l.js";
-            s.async = 1;
-            d.getElementsByTagName("head")[0].appendChild(s);
-        })();
-
-    </script>
+    <script src="js/cookie-consent.js"></script>
+    <script src="js/crisp-loader.js"></script>
     <script src="js/loader.js"></script>
     <script src ="js/dropdown.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
