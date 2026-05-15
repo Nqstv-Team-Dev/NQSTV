@@ -13,22 +13,37 @@
         }
 
         var cards = Array.prototype.slice.call(track.querySelectorAll(".project-card"));
+        var visibleCards = cards.filter(function (card) {
+            return card.parentElement === track;
+        });
+        var cardTargets = [];
         var activeIndex = 0;
         var scrollTimer = 0;
+        var resizeFrame = 0;
+        var dragFrame = 0;
+        var pendingDragScrollLeft = 0;
         var isPointerDown = false;
         var isDragging = false;
         var pointerStartX = 0;
         var scrollStartX = 0;
         var suppressClick = false;
 
-        function getVisibleCards() {
-            return cards.filter(function (card) {
+        function refreshMeasurements() {
+            visibleCards = cards.filter(function (card) {
                 return card.parentElement === track;
+            });
+
+            var styles = window.getComputedStyle(windowEl);
+            var gutter = parseFloat(styles.paddingLeft) || 0;
+            var maxScroll = Math.max(0, windowEl.scrollWidth - windowEl.clientWidth);
+
+            cardTargets = visibleCards.map(function (card) {
+                var target = card.offsetLeft - track.offsetLeft - gutter;
+                return Math.max(0, Math.min(target, maxScroll));
             });
         }
 
         function updateCounter() {
-            var visibleCards = getVisibleCards();
             var total = visibleCards.length;
 
             if (!countEl || total === 0) {
@@ -38,17 +53,7 @@
             countEl.textContent = "Project " + (activeIndex + 1) + " of " + total;
         }
 
-        function getScrollTargetForCard(card) {
-            var styles = window.getComputedStyle(windowEl);
-            var gutter = parseFloat(styles.paddingLeft) || 0;
-            var target = card.offsetLeft - track.offsetLeft - gutter;
-            var maxScroll = windowEl.scrollWidth - windowEl.clientWidth;
-
-            return Math.max(0, Math.min(target, maxScroll));
-        }
-
         function setActiveCard(index, behavior) {
-            var visibleCards = getVisibleCards();
             var total = visibleCards.length;
 
             if (total === 0) {
@@ -57,7 +62,7 @@
 
             activeIndex = ((index % total) + total) % total;
             windowEl.scrollTo({
-                left: getScrollTargetForCard(visibleCards[activeIndex]),
+                left: cardTargets[activeIndex] || 0,
                 top: 0,
                 behavior: behavior || "smooth"
             });
@@ -65,13 +70,12 @@
         }
 
         function updateIndexFromScroll() {
-            var visibleCards = getVisibleCards();
-            var windowLeft = windowEl.getBoundingClientRect().left;
+            var scrollLeft = windowEl.scrollLeft;
             var closestIndex = 0;
             var closestDistance = Infinity;
 
-            visibleCards.forEach(function (card, index) {
-                var distance = Math.abs(card.getBoundingClientRect().left - windowLeft);
+            cardTargets.forEach(function (target, index) {
+                var distance = Math.abs(target - scrollLeft);
 
                 if (distance < closestDistance) {
                     closestDistance = distance;
@@ -81,6 +85,11 @@
 
             activeIndex = closestIndex;
             updateCounter();
+        }
+
+        function writeDragScroll() {
+            dragFrame = 0;
+            windowEl.scrollLeft = pendingDragScrollLeft;
         }
 
         prevButton.addEventListener("click", function () {
@@ -122,7 +131,10 @@
                 isDragging = true;
                 suppressClick = true;
                 carousel.classList.add("is-dragging");
-                windowEl.scrollLeft = scrollStartX - deltaX;
+                pendingDragScrollLeft = scrollStartX - deltaX;
+                if (!dragFrame) {
+                    dragFrame = window.requestAnimationFrame(writeDragScroll);
+                }
                 event.preventDefault();
             }
         });
@@ -166,10 +178,17 @@
         window.addEventListener("resize", function () {
             if (window.innerWidth !== lastWidth) {
                 lastWidth = window.innerWidth;
-                setActiveCard(activeIndex, "auto");
+                if (!resizeFrame) {
+                    resizeFrame = window.requestAnimationFrame(function () {
+                        resizeFrame = 0;
+                        refreshMeasurements();
+                        setActiveCard(activeIndex, "auto");
+                    });
+                }
             }
         });
 
+        refreshMeasurements();
         updateCounter();
     }
 

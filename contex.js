@@ -105,6 +105,11 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-slide');
 const totalSlides = slides.length;
 let carouselInterval;
+const currentElement = document.querySelector('.current-slide');
+const totalElement = document.querySelector('.total-slides');
+const prefersReducedCarouselMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let carouselIsVisible = true;
 
 function updateCarousel() {
     slides.forEach((slide, index) => {
@@ -136,16 +141,17 @@ function updateCarousel() {
         }
     });
     
-    const currentElement = document.querySelector('.current-slide');
     if (currentElement) {
         currentElement.textContent = currentSlide + 1;
     }
 }
 
-function navigateCarousel(step) {
+function navigateCarousel(step, resetTimer = true) {
     currentSlide = (currentSlide + step + totalSlides) % totalSlides;
     updateCarousel();
-    resetAutoPlay();
+    if (resetTimer) {
+        resetAutoPlay();
+    }
 }
 
 const nextBtn = document.querySelector('.carousel-next');
@@ -164,9 +170,14 @@ if (prevBtn) {
 }
 
 function startAutoPlay() {
-    if (totalSlides <= 1) return;
+    clearInterval(carouselInterval);
+
+    if (totalSlides <= 1 || prefersReducedCarouselMotion || document.hidden || !carouselIsVisible) {
+        return;
+    }
+
     carouselInterval = setInterval(() => {
-        navigateCarousel(1);
+        navigateCarousel(1, false);
     }, 4000);
 }
 
@@ -179,6 +190,27 @@ const carouselContainer = document.querySelector('.project-carousel');
 if (carouselContainer && totalSlides > 0) {
     carouselContainer.addEventListener('mouseenter', () => clearInterval(carouselInterval));
     carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            clearInterval(carouselInterval);
+        } else {
+            startAutoPlay();
+        }
+    });
+
+    if ('IntersectionObserver' in window) {
+        const carouselObserver = new IntersectionObserver((entries) => {
+            carouselIsVisible = entries[0].isIntersecting;
+            if (carouselIsVisible) {
+                startAutoPlay();
+            } else {
+                clearInterval(carouselInterval);
+            }
+        }, { threshold: 0.15 });
+
+        carouselObserver.observe(carouselContainer);
+    }
     
     let touchStartX = 0;
     let touchEndX = 0;
@@ -197,7 +229,6 @@ if (carouselContainer && totalSlides > 0) {
 
     startAutoPlay();
     
-    const totalElement = document.querySelector('.total-slides');
     if (totalElement) {
         totalElement.textContent = totalSlides;
     }

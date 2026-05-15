@@ -3171,3 +3171,68 @@ main > section {
         flex: 0 0 auto;
     }
 }
+
+/* Major project carousel performance tuning */
+.project-carousel {
+    contain: layout paint;
+}
+
+.project-carousel-window {
+    overscroll-behavior-inline: contain;
+}
+
+.project-carousel .project-card:not(.active) {
+    contain: layout paint;
+}
+
+.project-carousel .project-card-media img {
+    transition: transform 0.24s ease;
+}
+
+@media (hover: none), (max-width: 760px), (prefers-reduced-motion: reduce) {
+    .project-carousel {
+        box-shadow: 0 18px 34px rgba(5, 22, 28, 0.24);
+    }
+
+    .project-carousel::after {
+        animation: none;
+        filter: none;
+        opacity: 0.22;
+        transform: none;
+    }
+
+    .project-carousel-count,
+    .project-carousel-button {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .project-carousel .project-card:not(.active) {
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .project-carousel .project-card:not(.active)::before {
+        display: none;
+    }
+
+    .project-carousel .project-card-media img,
+    .project-card:not(.active):hover .project-card-media img {
+        filter: none;
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-carousel::after {
+        animation: none;
+    }
+
+    .project-carousel-window {
+        scroll-behavior: auto;
+    }
+
+    .project-carousel-button,
+    .project-carousel .project-card-media img {
+        transition-duration: 0.01ms;
+    }
+}
