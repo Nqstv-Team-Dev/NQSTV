@@ -137,6 +137,30 @@ textarea:focus-visible {
     color: var(--search-text);
 }
 
+.search-form input {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.search-form input:focus,
+.search-form input:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+.search-form input::-webkit-search-decoration,
+.search-form input::-webkit-search-cancel-button,
+.search-form input::-webkit-search-results-button,
+.search-form input::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
 .dropdown-content {
     background: rgba(13, 35, 45, 0.98);
     border-color: rgba(124, 232, 234, 0.22);
