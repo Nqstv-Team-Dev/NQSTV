@@ -15,6 +15,23 @@
         let startScrollLeft = 0;
         let activePointerId = null;
         let dragged = false;
+        let pendingDragFrame = 0;
+        let pendingScrollLeft = 0;
+
+        const clampScrollLeft = (value) => {
+            const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+            return Math.min(Math.max(value, 0), maxScroll);
+        };
+
+        const flushPendingDragFrame = () => {
+            if (!pendingDragFrame) {
+                return;
+            }
+
+            window.cancelAnimationFrame(pendingDragFrame);
+            track.scrollLeft = pendingScrollLeft;
+            pendingDragFrame = 0;
+        };
 
         const getStep = () => {
             const card = track.querySelector(".staff-card");
@@ -60,6 +77,7 @@
 
             isDragging = true;
             dragged = false;
+            flushPendingDragFrame();
             activePointerId = event.pointerId;
             startX = event.clientX;
             startScrollLeft = track.scrollLeft;
@@ -74,7 +92,18 @@
 
             const dragDistance = event.clientX - startX;
             dragged = Math.abs(dragDistance) > 4;
-            track.scrollLeft = startScrollLeft - dragDistance;
+            pendingScrollLeft = clampScrollLeft(startScrollLeft - dragDistance);
+
+            if (!pendingDragFrame) {
+                pendingDragFrame = window.requestAnimationFrame(() => {
+                    track.scrollLeft = pendingScrollLeft;
+                    pendingDragFrame = 0;
+                });
+            }
+
+            if (dragged) {
+                event.preventDefault();
+            }
         });
 
         const stopDragging = (event) => {
@@ -84,6 +113,8 @@
 
             isDragging = false;
             activePointerId = null;
+            flushPendingDragFrame();
+
             track.classList.remove("is-dragging");
 
             if (track.hasPointerCapture(event.pointerId)) {
@@ -96,6 +127,7 @@
         track.addEventListener("lostpointercapture", () => {
             isDragging = false;
             activePointerId = null;
+            flushPendingDragFrame();
             track.classList.remove("is-dragging");
         });
 

@@ -1306,10 +1306,11 @@ textarea:focus-visible {
     margin: 0 -8px;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 8px;
     scrollbar-width: thin;
     scrollbar-color: rgba(170, 246, 246, 0.75) rgba(255, 255, 255, 0.12);
     cursor: grab;
-    touch-action: pan-x;
+    touch-action: pan-y;
     overscroll-behavior-inline: contain;
     -webkit-overflow-scrolling: touch;
     user-select: none;
@@ -1319,6 +1320,7 @@ textarea:focus-visible {
 .team-page .staff-carousel .staff-grid.is-dragging {
     cursor: grabbing;
     scroll-behavior: auto;
+    scroll-snap-type: none;
 }
 
 .team-page .staff-carousel .staff-grid::-webkit-scrollbar {
@@ -1348,7 +1350,10 @@ textarea:focus-visible {
         0 16px 34px rgba(5, 22, 28, 0.22),
         0 6px 16px rgba(49, 212, 220, 0.09),
         inset 0 1px 0 rgba(255, 255, 255, 0.72) !important;
-    -webkit-box-reflect: below 8px linear-gradient(transparent 70%, rgba(255, 255, 255, 0.12));
+}
+
+.team-page .staff-carousel .staff-grid.is-dragging .staff-card {
+    pointer-events: none;
 }
 
 .team-page .staff-carousel .staff-card img {
@@ -1420,7 +1425,6 @@ textarea:focus-visible {
             "content";
         flex-basis: min(250px, 76vw);
         overflow: hidden;
-        -webkit-box-reflect: initial;
     }
 
     .team-page .staff-carousel .staff-card::before {
