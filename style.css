@@ -1373,11 +1373,16 @@ body:has(.loader:not(.is-hidden)) {
     border: 1px solid rgba(38, 83, 87, 0.14);
     border-radius: 18px;
     background: rgba(255, 255, 255, 0.82);
-    cursor: pointer;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.featured-post-card:hover {
+.featured-post-card[data-post-url],
+.featured-post-card[data-preview-image] {
+    cursor: pointer;
+}
+
+.featured-post-card[data-post-url]:hover,
+.featured-post-card[data-preview-image]:hover {
     border-color: rgba(8, 115, 122, 0.3);
     box-shadow: 0 12px 24px rgba(8, 30, 34, 0.08);
     transform: translateY(-1px);
