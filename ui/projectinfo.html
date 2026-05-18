@@ -640,50 +640,29 @@
                 </div>
 
                 <div class="project-grid other-projects">
-                    <article class="Project-other card">
-                        <div class="other-project-header">
+                    <article class="Project-other card minor-project-panel">
+                        <div class="other-project-header minor-project-panel-header">
                             <div>
                                 <p class="section-kicker">Supporting Work</p>
                                 <h3 class="other-project-title">Minor Projects</h3>
                             </div>
                             <span class="other-project-badge">30+ listed works</span>
                         </div>
-                        <p class="other-project-intro">Beyond the featured major developments, these additional assignments show the range of sectors, building types, and commercial support services handled across the practice.</p>
-                        <ul class="project-bullets">
-                            <li>Ford Service Center and Office, BGC - Detailed Cost Plan and Pre-tender estimate</li>
-                            <li>Araneta Center Underground Utilities, Cubao - Pre-tender estimate and Tender Evaluation</li>
-                            <li>Araneta Center Link Bridge from Kia Theater to GT - Pre-tender estimate and Tender Evaluation</li>
-                            <li>SSS Alimall Office, Cubao - Budgetary Cost Estimate / Conceptual Cost Plan</li>
-                            <li>Tuguegarao Public Market - Bill of Quantities</li>
-                            <li>Franklin Baker Davao - Dispute Resolution and Arbitration</li>
-                            <li> First Philec Admin and Utility Building</li>
-                            <li>One Serra Residence</li>
-                            <li>PNB Divisoria BLDG</li>
-                            <li>Leclands Showroom</li>
-                            <li>Mandala REsidence</li>
-                            <li>ANG residence</li>
-                            <li>Tugugerao Market</li>
-                            <li>54 Clarendon UK</li>
-                            <li>62 ThreadNeedle UK</li>
-                            <li> Gotobox Restaurant</li>
-                            <li>Convo Coffee</li>
-                            <li>Tagaytay Curtain</li>
-                            <li> Panay House</li>
-                            <li>Renovation of Gat Tayaw House</li>
-                            <li>NCRPO Medical Center</li>
-                            <li>PMAAAI Building: The center of Leadership and Excellence</li>
-                            <li>Canadian Embassy</li>
-                            <li>Aboitiz meeting Room</li>
-                            <li>Uniqlo Facade</li>
-                            <li>Uniqlo Fitout</li>
-                            <li>Tacloban Temple - Meeting Room</li>
-                            <li>Tacloban Temple</li>
-                            <li>JLL Facade - British Embassy Manila Facade</li>
-                            <li> Soundcheck Warehouse Expansion</li>
-                            <li>FEU Renovation</li>
-                            <li>Tuguegarao Temple Ancilliary Building</li>
-                            <li>P&G Manila Seven Neo</li>
-                        </ul>
+                        <div class="minor-project-panel-body">
+                            <p class="other-project-intro">Additional assignments showing the range of sectors, building types, and commercial support services across the practice.</p>
+
+                            <div class="minor-project-search-row">
+                                <label class="minor-project-search-wrap" for="minorProjectSearch">
+                                    <span class="minor-project-search-icon" aria-hidden="true"></span>
+                                    <input class="minor-project-search-input" type="search" placeholder="Filter projects..." id="minorProjectSearch" autocomplete="off">
+                                </label>
+                                <span class="minor-project-count-pill" id="minorProjectCount">33 projects</span>
+                            </div>
+
+                            <div class="minor-project-scroll-area">
+                                <div class="minor-project-grid" id="minorProjectGrid"></div>
+                            </div>
+                        </div>
                     </article>
                 </div>
                 </section>
@@ -809,6 +788,7 @@
     <script src="js/card.js"></script>
     <script src="js/project-carousel.js?v=20260515-carousel-perf"></script>
     <script src="js/minor-carousel.js"></script>
+    <script src="js/other-projects.js"></script>
 
 </body>
 </html>
